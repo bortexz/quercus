@@ -1,5 +1,9 @@
-const electron = require('electron')
-const livereload = require('electron-connect').client
+// const electron = require('electron')
+// import {app, BrowserWindow} from 'electron'
+import electron from 'electron'
+// console.log(electron)
+import {client as livereload} from 'electron-connect'
+// const livereload = require('electron-connect').client
 // Module to control application life.
 const app = electron.app
 // Module to create native browser window.
