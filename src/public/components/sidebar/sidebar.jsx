@@ -1,15 +1,15 @@
-// entry.js
 import React from 'react'
-import ReactDOM from 'react-dom'
+import './sidebar.scss'
 
-export class App extends React.Component {
-  render () {
+export class SideBar extends React.Component {
+  render() {
     return (
-      <h1>Hello from React!</h1>
+      <div className='sideBar'>
+        <ul>
+          <li>Item1</li>
+          <li>Item2</li>
+        </ul>
+      </div>
     )
   }
 }
-
-ReactDOM.render(<App/>, document.getElementById('react-root'))
-
-

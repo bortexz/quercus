@@ -1,2 +1,1 @@
-import './content'
-import './sidebar'
+import './app/app.jsx'
