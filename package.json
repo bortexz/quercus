@@ -1,0 +1,32 @@
+{
+  "name": "quercus",
+  "version": "0.0.1",
+  "description": "Quercus is a multiplatform file manager written in web technologies",
+  "main": "index.js",
+  "scripts": {
+    "test": "standard",
+    "start": "rimraf -r build && webpack && electron src/app/main.js"
+  },
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "babel-core": "^6.11.4",
+    "babel-loader": "^6.2.4",
+    "babel-preset-es2015": "^6.9.0",
+    "babel-preset-react": "^6.11.1",
+    "copy-webpack-plugin": "^3.0.1",
+    "css-loader": "^0.23.1",
+    "electron-prebuilt": "^1.2.8",
+    "node-sass": "^3.8.0",
+    "react": "^15.2.1",
+    "react-dom": "^15.2.1",
+    "rimraf": "^2.5.3",
+    "sass-loader": "^4.0.0",
+    "standard": "^7.1.2",
+    "style-loader": "^0.13.1",
+    "webpack": "^1.13.1"
+  },
+  "dependencies": {
+    "electron-connect": "^0.4.2"
+  }
+}
