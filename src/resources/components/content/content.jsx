@@ -1,8 +1,7 @@
-import React from 'react'
-import './sidebar.scss'
+import React, {PropTypes} from 'react'
 
-export class SideBar extends React.Component {
-  render() {
+class SideBar extends React.Component {
+  render () {
     return (
       <div>
         {this.props.path}
@@ -10,3 +9,9 @@ export class SideBar extends React.Component {
     )
   }
 }
+
+SideBar.propTypes = {
+  path: PropTypes.string.isRequired
+}
+
+export default SideBar

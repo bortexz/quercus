@@ -1,7 +1,7 @@
 const content = (state = '/', action) => {
   switch (action.type) {
     case 'LOAD_PATH':
-      return Object.assign({}, state, action.path)
+      return Object.assign({}, state, {path: action.path})
   }
 }
 

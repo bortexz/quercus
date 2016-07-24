@@ -1,16 +1,18 @@
 // entry.js
-import {Component} from 'react'
-import ReactDOM from 'react-dom'
+import React from 'react'
 
-import {SideBar} from '../sidebar/sidebar.jsx'
-import {Content} from '../content/content.container.jsx'
+import SidebarVisible from '../sidebar/sidebar.container'
+import ContentVisible from '../content/content.container'
 
-export class App extends Component {
+class App extends React.Component {
   render () {
     return (
-      <div>
-        <SideBar />
+      <div className='app'>
+        <SidebarVisible />
+        <ContentVisible />
       </div>
     )
   }
 }
+
+export default App

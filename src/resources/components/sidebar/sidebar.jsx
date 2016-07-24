@@ -1,15 +1,21 @@
-import React from 'react'
+import React, {PropTypes} from 'react'
 import './sidebar.scss'
 
-export class SideBar extends React.Component {
-  render() {
+class SideBar extends React.Component {
+  render () {
     return (
       <div className='sideBar'>
         <ul>
-          <li>Item1</li>
-          <li>Item2</li>
+          <li onClick={() => this.props.onItemClick('/Users/')}>Users</li>
+          <li onClick={() => this.props.onItemClick('/Applications/')}>Applications</li>
         </ul>
       </div>
     )
   }
 }
+
+SideBar.propTypes = {
+  onItemClick: PropTypes.func.isRequired
+}
+
+export default SideBar

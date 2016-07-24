@@ -4,7 +4,7 @@ let path = require('path')
 
 module.exports = {
   context: path.join(__dirname, 'src'),
-  entry: './resources/main.js',
+  entry: './resources/main.jsx',
   devtool: 'source-map',
   output: {
     filename: 'bundle.js',
