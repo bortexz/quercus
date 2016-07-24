@@ -1,8 +1,13 @@
 'use strict'
 let CopyWebpackPlugin = require('copy-webpack-plugin')
 let path = require('path')
+let electron = require('electron-connect').server.create()
+let WebpackOnBuildPlugin = require('on-build-webpack')
 
-module.exports = {
+var ENV = process.env.npm_lifecycle_event
+var isWatching = ENV === 'start-watch'
+
+let config = {
   context: path.join(__dirname, 'src'),
   entry: './resources/main.jsx',
   devtool: 'source-map',
@@ -35,3 +40,21 @@ module.exports = {
     ]
   }
 }
+
+if (isWatching) {
+  config.plugins.push(
+    new WebpackOnBuildPlugin(function (stats) {
+      if (!config.reload) {
+        config.reload = true
+        electron.start()
+      } else {
+        electron.reload()
+      }
+    })
+  )
+}
+
+module.exports = config
+
+
+

@@ -1,9 +1,9 @@
 import {connect} from 'react-redux'
 import Content from './content.jsx'
 
-const stateProps = (state = {path: '/'}) => {
+const stateProps = (state) => {
   return {
-    path: state.path
+    path: state ? state.path : null
   }
 }
 

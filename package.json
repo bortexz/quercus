@@ -4,8 +4,10 @@
   "description": "Quercus is a multiplatform file manager written in web technologies",
   "main": "index.js",
   "scripts": {
+    "clean": "rimraf -r build",
     "test": "standard",
-    "start": "rimraf -r build && webpack && electron ."
+    "start": "npm run clean && webpack && electron .",
+    "start-watch": "npm run clean && webpack --progress --watch"
   },
   "author": "",
   "license": "MIT",
@@ -19,6 +21,7 @@
     "electron-devtools-installer": "^2.0.0",
     "electron-prebuilt": "^1.2.8",
     "node-sass": "^3.8.0",
+    "on-build-webpack": "^0.1.0",
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "rimraf": "^2.5.3",
