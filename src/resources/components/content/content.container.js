@@ -3,7 +3,7 @@ import Content from './content.jsx'
 
 const stateProps = (state) => {
   return {
-    path: state ? state.path : null
+    path: state.path
   }
 }
 

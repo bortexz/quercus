@@ -4,7 +4,7 @@ import SideBar from './sidebar.jsx'
 
 const stateToProps = (state) => {
   return {
-    state: state
+    items: state.sidebarItems
   }
 }
 

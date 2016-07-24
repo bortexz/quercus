@@ -6,8 +6,10 @@ class SideBar extends React.Component {
     return (
       <div className='sideBar'>
         <ul>
-          <li onClick={() => this.props.onItemClick('/Users/')}>Users</li>
-          <li onClick={() => this.props.onItemClick('/Applications/')}>Applications</li>
+          {this.props.items.map(item =>
+            <li onClick={() => this.props.onItemClick(item.path)}
+            key={item.path}>{item.name}</li>
+          )}
         </ul>
       </div>
     )
@@ -15,7 +17,11 @@ class SideBar extends React.Component {
 }
 
 SideBar.propTypes = {
-  onItemClick: PropTypes.func.isRequired
+  onItemClick: PropTypes.func.isRequired,
+  items: PropTypes.arrayOf(PropTypes.shape({
+    path: PropTypes.string.isRequired,
+    name: PropTypes.string.isRequired
+  }).isRequired).isRequired
 }
 
 export default SideBar

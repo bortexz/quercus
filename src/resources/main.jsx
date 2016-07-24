@@ -2,10 +2,12 @@ import React from 'react'
 import { render } from 'react-dom'
 import { Provider } from 'react-redux'
 import { createStore } from 'redux'
-import content from './reducers/content'
+import Reducers from './reducers'
 import App from './components/app/app.jsx'
 
-let store = createStore(content)
+import {loadPath} from './actions/content'
+
+let store = createStore(Reducers)
 
 render(
   <Provider store={store}>
@@ -14,3 +16,4 @@ render(
   document.getElementById('react-root')
 )
 
+store.dispatch(loadPath('/Init/'))

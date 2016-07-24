@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react'
 
-class SideBar extends React.Component {
+class Content extends React.Component {
   render () {
     return (
       <div>
@@ -10,8 +10,8 @@ class SideBar extends React.Component {
   }
 }
 
-SideBar.propTypes = {
-  path: PropTypes.string
+Content.propTypes = {
+  path: PropTypes.string.isRequired
 }
 
-export default SideBar
+export default Content

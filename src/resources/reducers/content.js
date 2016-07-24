@@ -1,10 +1,9 @@
 const content = (state = '/', action) => {
   switch (action.type) {
     case 'LOAD_PATH':
-      return Object.assign({}, state, {path: action.path})
+      return action.path
+    default: return state
   }
 }
-
-// No init state, should be retrieved by a redux-sagas!
 
 export default content
