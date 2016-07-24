@@ -1,10 +1,11 @@
 // entry.js
-import React from 'react'
+import {Component} from 'react'
 import ReactDOM from 'react-dom'
 
 import {SideBar} from '../sidebar/sidebar.jsx'
+import {Content} from '../content/content.container.jsx'
 
-class App extends React.Component {
+export class App extends Component {
   render () {
     return (
       <div>
@@ -13,5 +14,3 @@ class App extends React.Component {
     )
   }
 }
-
-ReactDOM.render(<App/>, document.getElementById('react-root'))

@@ -4,21 +4,17 @@ let path = require('path')
 
 module.exports = {
   context: path.join(__dirname, 'src'),
-  entry: './public/main.js',
+  entry: './resources/main.js',
   devtool: 'source-map',
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, 'build')
   },
 
-  resolve: {
-    extensions: ['', '.js', '.jsx']
-  },
-
   plugins: [
     new CopyWebpackPlugin([
       {
-        from: './public/index.html',
+        from: './resources/index.html',
         to: '../build/index.html'
       }
     ])
