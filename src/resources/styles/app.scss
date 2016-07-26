@@ -18,12 +18,14 @@ html, body {height: 100%;}
   overflow: scroll;
   padding: 15px;
   width: 200px;
+  border-right: 1px solid rgba(0,0,0,0.1)
 }
 
 #content {
   flex-basis: 100%;
   overflow: scroll;
   align-items: flex-start;
+  background-color: rgb(98%,98%,98%)
 }
 
 #errors {

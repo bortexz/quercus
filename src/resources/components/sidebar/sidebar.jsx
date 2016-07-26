@@ -13,8 +13,11 @@ class SideBar extends React.Component {
               </p>
               <ul className='menu-list'>
                 {this.getSubItems(key).map(item =>
-                  <li key={item}><a onClick={() => this.props.onItemClick(item.path)}
-                    key={item.path}>{item.name}</a></li>
+                  <li key={item.name}>
+                    <a onClick={() => this.props.onItemClick(item.path)}>
+                      {item.name}
+                    </a>
+                  </li>
                 )}
               </ul>
             </div>

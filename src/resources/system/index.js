@@ -82,7 +82,7 @@ function _getConfig (cb) {
 export function getFiles (dirpath) {
   return new Promise((resolve, reject) => {
     fs.readdir(dirpath, (err, files) => {
-      if (err) reject(err)
+      if (err) reject(new Error('Could not load path, make sure it exists'))
       else resolve(files)
     })
   })
