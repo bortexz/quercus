@@ -1,7 +1,8 @@
-const content = (state = '/', action) => {
+import { List } from 'immutable'
+
+const content = (state = List(), action) => {
   switch (action.type) {
-    case 'LOAD_PATH':
-      return action.path
+    case 'GET_FILES_OK': return action.files
     default: return state
   }
 }

@@ -1,6 +1,12 @@
 import electron from 'electron'
 import {client as livereload} from 'electron-connect'
-import './events'
+
+// TODO do it
+// import installExtension, { REDUX_DEVTOOLS } from 'electron-devtools-installer';
+
+// installExtension(REDUX_DEVTOOLS)
+//     .then((name) => console.log(`Added Extension:  ${name}`))
+//     .catch((err) => console.log('An error occurred: ', err));
 
 const npmLifecycle = process.env.npm_lifecycle_event
 
@@ -11,7 +17,7 @@ let mainWindow
 
 function createWindow () {
   // Create the browser window.
-  mainWindow = new BrowserWindow({width: 800, height: 600})
+  mainWindow = new BrowserWindow({width: 1000, height: 600})
 
   // and load the index.html of the app.
   mainWindow.loadURL(`file://${__dirname}/../../build/index.html`)

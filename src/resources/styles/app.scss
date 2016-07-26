@@ -1,0 +1,34 @@
+html, body {height: 100%;}
+#react-root {
+  width: 100%;
+  height: 100%;
+}
+
+#app {
+  height: 100%;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+}
+
+#sidebar {
+  flex-basis: auto;
+  align-items: flex-start;
+  height: 100%;
+  overflow: scroll;
+  padding: 15px;
+  width: 200px;
+}
+
+#content {
+  flex-basis: 100%;
+  overflow: scroll;
+  align-items: flex-start;
+}
+
+#errors {
+  position: fixed;
+  right: 0;
+  width: 300px;
+  padding: 15px;
+}

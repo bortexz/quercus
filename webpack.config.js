@@ -11,6 +11,7 @@ let config = {
   context: path.join(__dirname, 'src'),
   entry: './resources/main.jsx',
   devtool: 'source-map',
+  target: 'electron',
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, 'build')
@@ -30,11 +31,12 @@ let config = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['es2015', 'react']
+          presets: ['es2015', 'react'],
+          plugins: [ 'transform-runtime' ]
         }
       },
       {
-        test: /\.scss$/,
+        test: /\.(scss|sass)$/,
         loaders: ['style', 'css', 'sass']
       }
     ]
@@ -55,6 +57,3 @@ if (isWatching) {
 }
 
 module.exports = config
-
-
-

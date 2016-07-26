@@ -1,17 +1,24 @@
-import React, {PropTypes} from 'react'
+import React from 'react'
+import IPropTypes from 'react-immutable-proptypes'
 
 class Content extends React.Component {
   render () {
     return (
-      <div>
-        {this.props.path}
+      <div id='content'>
+        <ul>
+        {this.props.files.map(file =>
+          <li key={file}>{file}</li>
+        )}
+        </ul>
       </div>
     )
   }
-}
 
-Content.propTypes = {
-  path: PropTypes.string.isRequired
+  static propTypes () {
+    return {
+      files: IPropTypes.list.isRequired
+    }
+  }
 }
 
 export default Content

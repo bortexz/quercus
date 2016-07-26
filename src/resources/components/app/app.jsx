@@ -1,15 +1,21 @@
 // entry.js
 import React from 'react'
 
-import SidebarVisible from '../sidebar/sidebar.container'
-import ContentVisible from '../content/content.container'
+// import bulma styles and other styles
+import 'bulma/bulma.sass'
+import '../../styles/app.scss'
+
+import SidebarContainer from '../sidebar/sidebar.container'
+import ContentContainer from '../content/content.container'
+import ErrorsContainer from '../errors/errors.container'
 
 class App extends React.Component {
   render () {
     return (
-      <div className='app'>
-        <SidebarVisible />
-        <ContentVisible />
+      <div id='app'>
+        <SidebarContainer />
+        <ContentContainer />
+        <ErrorsContainer />
       </div>
     )
   }

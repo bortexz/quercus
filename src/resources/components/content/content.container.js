@@ -3,12 +3,12 @@ import Content from './content.jsx'
 
 const stateProps = (state) => {
   return {
-    path: state.path
+    files: state.files
   }
 }
 
-const ContentVisible = connect(
+const ContentContainer = connect(
   stateProps
 )(Content)
 
-export default ContentVisible
+export default ContentContainer

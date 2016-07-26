@@ -1,5 +1,5 @@
 import { connect } from 'react-redux'
-import { loadPath } from '../../actions/content'
+import { getFiles } from '../../actions/content'
 import SideBar from './sidebar.jsx'
 
 const stateToProps = (state) => {
@@ -11,14 +11,14 @@ const stateToProps = (state) => {
 const dispatchToProps = (dispatch) => {
   return {
     onItemClick: (path) => {
-      dispatch(loadPath(path))
+      dispatch(getFiles(path))
     }
   }
 }
 
-const SidebarVisible = connect(
+const SidebarContainer = connect(
   stateToProps,
   dispatchToProps
 )(SideBar)
 
-export default SidebarVisible
+export default SidebarContainer

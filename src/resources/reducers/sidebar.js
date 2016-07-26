@@ -1,17 +1,11 @@
-let defaultSidebarItems = [
-  {
-    path: '/Applications/',
-    name: 'Applications'
-  }, {
-    path: '/Music/',
-    name: 'Music'
-  }
-]
+import {OrderedMap} from 'immutable'
+import {LOAD_SIDEBAR_ITEMS_OK} from '../actions/sidebar'
 
-const sidebarItems = (state = defaultSidebarItems, action) => {
+const sidebarItems = (state = OrderedMap(), action) => {
   switch (action.type) {
-    case 'ADD_ITEM': return state
-    case 'REMOVE_ITEM': return state
+    case LOAD_SIDEBAR_ITEMS_OK: {
+      return OrderedMap(action.sidebarItems)
+    }
     default: return state
   }
 }
