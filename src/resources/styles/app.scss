@@ -1,7 +1,6 @@
 html, body {height: 100%;}
 // Imports
 @import './icons';
-$fa-font-path: "./vendor/font-awesome-4.6.3/fonts" !default;
 @import './vendor/font-awesome-4.6.3/scss/font-awesome';
 
 #react-root {
@@ -32,6 +31,10 @@ $fa-font-path: "./vendor/font-awesome-4.6.3/fonts" !default;
 
   flex-basis: auto;
   background: transparent;
+
+  .is-disabled {
+    opacity: 0.4;
+  }
 }
 
 #sidebar {

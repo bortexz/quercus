@@ -3,7 +3,6 @@ import React from 'react'
 
 // import bulma styles and other styles
 import 'bulma/bulma.sass'
-import 'font-awesome/scss/font-awesome.scss'
 import '../../styles/app.scss'
 
 import SidebarContainer from '../sidebar/sidebar.container'

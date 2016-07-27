@@ -2,18 +2,18 @@ import { combineReducers } from 'redux'
 
 import sidebarItems from './sidebar'
 import content from './files'
-import directory from './directory'
 import errors from './errors'
 import selected from './selected'
 import options from './options'
+import navigation from './navigation'
 
 const Reducers = combineReducers({
   sidebarItems,
   files: content,
   errors,
-  directory,
   selected,
-  options
+  options,
+  navigation
 })
 
 export default Reducers

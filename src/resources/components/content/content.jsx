@@ -65,7 +65,7 @@ class Content extends React.Component {
 
   // Double click
   doubleClick (file) {
-    let fullpath = path.join(this.props.directory, file.name)
+    let fullpath = path.join(this.props.current, file.name)
     if (file.isDirectory) {
       this.props.gotoDirectory(fullpath)
     } else {
@@ -79,7 +79,7 @@ class Content extends React.Component {
         name: PropTypes.string.isRequired,
         isDirectory: PropTypes.boolean.isRequired
       }).isRequired).isRequired,
-      directory: PropTypes.string.isRequired
+      current: PropTypes.string.isRequired || null
     }
   }
 }

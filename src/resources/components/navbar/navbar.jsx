@@ -1,23 +1,29 @@
 import React from 'react'
-
 import classNames from 'classnames'
+import {canGoUp, getUpDir} from '../../system/navigation'
 
 class Navbar extends React.Component {
   render () {
     return (
       <div id='navbar' className='nav'>
         <div className='nav-left'>
-          <a className='nav-item'>
+          <a
+            className={this.getArrowsClassnames('back')}
+            onClick={() => this.arrowClick('back')}>
             <span className='icon'>
               <i className='fa fa-chevron-left'></i>
             </span>
           </a>
-          <a className='nav-item'>
+          <a
+            className={this.getArrowsClassnames('forward')}
+            onClick={() => this.arrowClick('forward')}>
             <span className='icon'>
               <i className='fa fa-chevron-right'></i>
             </span>
           </a>
-          <a className='nav-item'>
+          <a
+            className={this.getUpClassnames()}
+            onClick={() => this.goUp()}>
             <span className='icon'>
               <i className='fa fa-arrow-up'></i>
             </span>
@@ -30,6 +36,28 @@ class Navbar extends React.Component {
         </div>
       </div>
     )
+  }
+
+  // Arrows
+  getArrowsClassnames (arrow) {
+    return classNames('nav-item', {
+      'is-disabled': this.props.navigation.get(arrow).size === 0
+    })
+  }
+
+  arrowClick (arrow) {
+    this.props.getFiles(this.props.navigation.get(arrow).first(), true)
+  }
+
+  // GO UP functions
+  getUpClassnames () {
+    return classNames('nav-item', {
+      'is-disabled': !canGoUp(this.props.navigation.get('current'))
+    })
+  }
+
+  goUp () {
+    this.props.getFiles(getUpDir(this.props.navigation.get('current')))
   }
 
   getVisibleClassnames () {

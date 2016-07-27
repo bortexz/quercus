@@ -16,7 +16,7 @@ function _filterFiles (state) {
 const stateProps = (state) => {
   return {
     files: _filterFiles(state),
-    directory: state.directory,
+    current: state.navigation.get('current'),
     selected: state.selected
   }
 }

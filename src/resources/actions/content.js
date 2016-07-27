@@ -6,8 +6,9 @@ export const GET_FILES_OK = 'GET_FILES_OK'
 export const GET_FILES_ERR = 'GET_FILES_ERR'
 export const SELECT_FILES = 'SELECT_FILES'
 
-export function getFiles (path) {
-  return { type: GET_FILES, path }
+// history to enable/disable add new path to history
+export function getFiles (path, arrows = false) {
+  return { type: GET_FILES, path, arrows }
 }
 
 export function getFilesOk (files) {
