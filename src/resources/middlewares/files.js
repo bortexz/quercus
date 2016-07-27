@@ -1,6 +1,6 @@
 import { takeLatest } from 'redux-saga'
 import { call, put } from 'redux-saga/effects'
-import { getFiles } from '../system'
+import { getFiles } from '../system/files'
 
 import {getFilesOk, getFilesErr, GET_FILES} from '../actions/content'
 

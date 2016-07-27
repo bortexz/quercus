@@ -79,20 +79,9 @@ function _getConfig (cb) {
 }
 
 // Exported functions
-export function getFiles (dirpath) {
-  return new Promise((resolve, reject) => {
-    fs.readdir(dirpath, (err, files) => {
-      if (err) reject(new Error('Could not load path, make sure it exists'))
-      else resolve(files)
-    })
-  })
-}
-
 export function getHomeDir () {
   return os.homedir()
 }
-
-
 
 export function getSidebarConfig () {
   return new Promise((resolve, reject) => {
