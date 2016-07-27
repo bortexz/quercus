@@ -31,6 +31,7 @@ let config = {
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
+          cacheDirectory: true,
           presets: ['es2015', 'react'],
           plugins: [ 'transform-runtime' ]
         }
@@ -38,7 +39,13 @@ let config = {
       {
         test: /\.(scss|sass)$/,
         loaders: ['style', 'css', 'sass']
-      }
+      },
+      // fonts etc..
+      {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader?mimetype=image/svg+xml'},
+      {test: /\.woff(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader?mimetype=application/font-woff'},
+      {test: /\.woff2(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader?mimetype=application/font-woff'},
+      {test: /\.ttf(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader?mimetype=application/octet-stream'},
+      {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader'}
     ]
   }
 }

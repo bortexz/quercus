@@ -35,4 +35,4 @@ render(
 )
 
 store.dispatch(loadItems())
-store.dispatch(getFiles('/Users/alberto/'))
+store.dispatch(getFiles('/Users/alberto'))

@@ -2,7 +2,7 @@ import {remote, shell} from 'electron'
 let sh = remote.require('shelljs')
 
 export function getFiles (dirpath) {
-  sh.cd(dirpath)
+  if (sh.cd(dirpath).code !== 0) throw new Error(`Cannot load path: ${dirpath}`)
   try {
     let items = sh.ls('-lA')
     return items.map(item => {
