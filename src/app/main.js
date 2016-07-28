@@ -20,8 +20,8 @@ function createWindow () {
   let options = {
     width: 1000,
     height: 600,
-    minWidth: 300,
-    minHeight: 100
+    minWidth: 400,
+    minHeight: 200
   }
   mainWindow = new BrowserWindow(options)
 

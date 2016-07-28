@@ -6,7 +6,6 @@ import {getFiles} from '../../actions/content'
 
 const stateProps = (state) => {
   return {
-    directory: state.directory,
     options: state.options,
     navigation: state.navigation
   }

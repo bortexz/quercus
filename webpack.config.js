@@ -17,6 +17,14 @@ let config = {
     path: path.join(__dirname, 'build')
   },
 
+  // Resolve
+  resolve: {
+    modules: [
+      path.resolve('./src/resources/'),
+      path.resolve('./node_modules')
+    ]
+  },
+
   plugins: [
     new CopyWebpackPlugin([
       {
@@ -33,7 +41,9 @@ let config = {
         query: {
           cacheDirectory: true,
           presets: ['es2015', 'react'],
-          plugins: [ 'transform-runtime' ]
+          plugins: [ 'transform-runtime', ['babel-root-import', {
+            'rootPathSuffix': './src/resources'
+          }]]
         }
       },
       {

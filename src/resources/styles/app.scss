@@ -15,7 +15,7 @@ html, body {height: 100%;}
   flex-wrap: nowrap;
   justify-content: flex-start;
 
-  & > #main-container {
+  & #main-container {
     display: flex;
 
     flex-basis: 100%;
@@ -26,11 +26,38 @@ html, body {height: 100%;}
 
 #navbar {
   width: 100%;
-
   border-bottom: 1px solid rgba(0,0,0,0.1);
 
   flex-basis: auto;
-  background: transparent;
+  height: 60px;
+
+  padding: 0px 5px;
+  justify-content: space-between;
+
+  .nav-left {
+    max-width: 120px;
+    min-width: 120px;
+    justify-content: space-around;
+  }
+
+  .nav-center {
+    flex-wrap: wrap;
+    overflow: scroll;
+
+    & .nav-item {
+      padding: 0px 2px;
+    }
+  }
+
+  .nav-right {
+    flex-basis: auto;
+    max-width: 100px;
+  }
+
+  & .nav-item {
+    padding: 2px 2px;
+  }
+
 
   .is-disabled {
     opacity: 0.4;
