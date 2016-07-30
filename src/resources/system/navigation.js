@@ -1,7 +1,11 @@
 import {remote} from 'electron'
 let path = remote.require('path') // Multiplatform path!
 
-export function getBreadcrumbPath (dirpath) {
+export function getPathFromBreadcrumb (breadcrumb) {
+  return breadcrumb.join(path.sep)
+}
+
+export function getBreadcrumbFromPath (dirpath) {
   if (!(typeof dirpath === 'string')) {
     return []
   }

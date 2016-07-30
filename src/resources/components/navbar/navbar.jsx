@@ -10,7 +10,8 @@ class Navbar extends React.Component {
       <div id='navbar' className='nav'>
         <NavbarLeft {...this.props} />
         <NavbarCenter
-          current={this.props.navigation.get('current')} />
+          current={this.props.navigation.get('current')}
+          getFiles={this.props.getFiles} />
 
         <div className='nav-right'>
           <a className='nav-item'>

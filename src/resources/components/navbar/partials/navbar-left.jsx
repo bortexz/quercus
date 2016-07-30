@@ -10,26 +10,26 @@ class NavbarLeft extends React.Component {
         <a
           className={this.getArrowsClassnames('back')}
           onClick={() => this.arrowClick('back')}>
-          <span className='icon'>
-            <i className='fa fa-chevron-left'></i>
+          <span className=''>
+            <i className='fa fa-angle-left fa-2x'></i>
           </span>
         </a>
         <a
           className={this.getArrowsClassnames('forward')}
           onClick={() => this.arrowClick('forward')}>
-          <span className='icon'>
-            <i className='fa fa-chevron-right'></i>
+          <span className=''>
+            <i className='fa fa-angle-right fa-2x'></i>
           </span>
         </a>
         <a
           className={this.getUpClassnames()}
           onClick={() => this.goUp()}>
-          <span className='icon'>
-            <i className='fa fa-arrow-up'></i>
+          <span className=''>
+            <i className='fa fa-angle-double-up fa-2x'></i>
           </span>
         </a>
         <a className='nav-item' onClick={() => this.props.toggleHidden()}>
-          <span className='icon'>
+          <span className=''>
             <i className={this.getVisibleClassnames()}></i>
           </span>
         </a>
@@ -60,9 +60,9 @@ class NavbarLeft extends React.Component {
   }
 
   getVisibleClassnames () {
-    return classNames('fa', {
-      'fa-dot-circle-o': this.props.options.get('hidden'),
-      'fa-circle-o': !this.props.options.get('hidden')
+    return classNames('fa fa-lg', {
+      'fa-eye': this.props.options.get('hidden'),
+      'fa-low-vision': !this.props.options.get('hidden')
     })
   }
 }
