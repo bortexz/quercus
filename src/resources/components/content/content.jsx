@@ -1,13 +1,16 @@
 import React, {PropTypes} from 'react'
 import IPropTypes from 'react-immutable-proptypes'
-import classNames from 'classnames'
 import {List} from 'immutable'
 import path from 'path'
+// import { SelectableGroup, createSelectable } from 'react-selectable'
 
 // Partial Components
 import FilterInput from './partials/filter.jsx'
+import Item from './partials/item.jsx'
 
 import {openFile} from '../../system/files'
+
+// createSelectable()
 
 class Content extends React.Component {
 
@@ -30,45 +33,17 @@ class Content extends React.Component {
 
         <ul id='content-list'>
         {this.props.files.map(file =>
-          <li key={file.name}
-            className={this.getItemClassnames(file)}
+          <Item
+            file={file}
+            key={file.name}
             onClick={(e) => this.selectItem(e, file.name)}
-            onDoubleClick={() => this.doubleClick(file)}>
-            <div
-              className={this.getIconClassnames(file)}
-              data-type={this.getDataType(file.name)}>
-            </div>
-            <span title={file.name}>{file.name}</span>
-          </li>
+            onDoubleClick={() => this.doubleClick(file)}
+            selected={this.props.selected.indexOf(file.name) !== -1}
+             />
         )}
         </ul>
       </div>
     )
-  }
-
-  // Classnames
-  getItemClassnames (file) {
-    return classNames(
-      'content-list-item',
-      {
-        'selected': this.props.selected.indexOf(file.name) !== -1
-      })
-  }
-
-  getIconClassnames (file) {
-    return classNames({
-      'folder': file.isDirectory,
-      'file file-lg': !file.isDirectory,
-      'hidden': file.name.indexOf('.') === 0
-    })
-  }
-
-  getDataType (filename) {
-    let a = filename.split('.')
-    if (a.length === 1 || (a[0] === '' && a.length === 2)) {
-      return ''
-    }
-    return a.pop()
   }
 
   // Select

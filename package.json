@@ -46,6 +46,7 @@
     "react-dom": "^15.2.1",
     "react-immutable-proptypes": "^1.7.1",
     "react-redux": "^4.4.5",
+    "react-selectable": "^0.2.5",
     "redux": "^3.5.2",
     "redux-saga": "^0.11.0",
     "shelljs": "^0.7.2",
