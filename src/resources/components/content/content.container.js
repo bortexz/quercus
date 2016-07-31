@@ -7,8 +7,7 @@ import {selectFiles, getFiles} from '../../actions/content'
 import {applyFilter} from '../../actions/options'
 
 // Takes the state and return the files filtered
-// REFACTOR TODO Move to selectors
-// https://github.com/reactjs/reselect
+// TODO: Move to selectors https://github.com/reactjs/reselect
 function _filterFiles (state) {
   // Hidden/Visible
   let files = state.files

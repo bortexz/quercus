@@ -14,8 +14,8 @@ class App extends React.Component {
   render () {
     return (
       <div id='app'
-        tabIndex='1'
         onFocus={() => this.onFocus()}
+        tabIndex='1'
         ref={elm => this.refer(elm)}>
         <NavbarContainer />
         <div id='main-container'>
@@ -27,10 +27,9 @@ class App extends React.Component {
     )
   }
 
-  // REFACTOR TODO Any way to do this more efficiently ?
+  // TODO: Any way to do this more efficiently ?
   // It's called several times each time something's clicked
   onFocus () {
-    // console.log(document.activeElement === this._element)
     if (document.activeElement === this._element) {
       document.getElementsByName('content-filter')[0].focus()
     }

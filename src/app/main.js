@@ -1,7 +1,7 @@
 import electron from 'electron'
 import {client as livereload} from 'electron-connect'
 
-// TODO do it
+// TODO: Add developer extensions automatically if not installed
 // import installExtension, { REDUX_DEVTOOLS } from 'electron-devtools-installer';
 
 // installExtension(REDUX_DEVTOOLS)

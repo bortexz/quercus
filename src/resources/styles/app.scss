@@ -102,8 +102,8 @@ html, body {height: 100%;}
 
     /* Efect */
     &.disappear {
-      right: -250px !important;
-      transition: right .1s linear;
+      top: 0px;
+      transition: top .1s linear;
     }
 
     /* Content search input */

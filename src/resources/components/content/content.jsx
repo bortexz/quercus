@@ -1,16 +1,9 @@
 import React, {PropTypes} from 'react'
 import IPropTypes from 'react-immutable-proptypes'
 import {List} from 'immutable'
-import path from 'path'
-// import { SelectableGroup, createSelectable } from 'react-selectable'
-
 // Partial Components
 import FilterInput from './partials/filter.jsx'
-import Item from './partials/item.jsx'
-
-import {openFile} from '../../system/files'
-
-// createSelectable()
+import ItemList from './partials/itemlist.jsx'
 
 class Content extends React.Component {
 
@@ -24,49 +17,29 @@ class Content extends React.Component {
   render () {
     return (
       <div id='content'
-        onClick={() => this.clearSelect()}>
+        onMouseDown={() => this.clearSelect()}
+        >
         <FilterInput
           onChange={e => this.filterChange(e.target.value)}
           shouldDisplay={this.state.shouldDisplayFilter}
           value={this.state.filter}
           onFilterBlur={() => this.onFilterBlur()} />
 
-        <ul id='content-list'>
-        {this.props.files.map(file =>
-          <Item
-            file={file}
-            key={file.name}
-            onClick={(e) => this.selectItem(e, file.name)}
-            onDoubleClick={() => this.doubleClick(file)}
-            selected={this.props.selected.indexOf(file.name) !== -1}
-             />
-        )}
-        </ul>
+        <ItemList
+          onSelection={(args) => this.handleSelection(args)}
+          {...this.props}
+           />
       </div>
     )
-  }
-
-  // Select
-  selectItem (e, filename) {
-    this.props.selectItems(List([filename]))
-    e.stopPropagation()
   }
 
   clearSelect () {
     this.props.selectItems(List())
   }
 
-  doubleClick (file) {
-    let fullpath = path.join(this.props.current, file.name)
-    if (file.isDirectory) {
-      this.props.gotoDirectory(fullpath)
-    } else {
-      openFile(fullpath)
-    }
-  }
-
   componentWillReceiveProps (nextProps) {
     // If we have changed directory, remove filter
+    console.log(nextProps.selected)
     if (this.props.current !== nextProps.current) {
       this.setState({
         filter: '',
@@ -86,6 +59,7 @@ class Content extends React.Component {
 
   // on focus of this container, if filter empty, hide
   onFilterBlur () {
+    console.log('blur')
     if (!this.state.filter) {
       this.setState({shouldDisplayFilter: false})
     }
