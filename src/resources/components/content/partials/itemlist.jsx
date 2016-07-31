@@ -2,7 +2,7 @@ import React from 'react'
 import {List} from 'immutable'
 import path from 'path'
 // TODO: Replace by the npm one once updated and e.preventDefault() changed https://github.com/unclecheese/react-selectable/issues/15
-import { SelectableGroup, createSelectable } from './react-selectable'
+import { SelectableGroup, createSelectable } from 'react-selectable'
 
 import {openFile} from '../../../system/files'
 
@@ -18,6 +18,7 @@ class ItemList extends React.Component {
         fixedPosition={Boolean(true)}
         selectOnMouseMove={Boolean(true)}
         component='ul'
+        preventDefault={Boolean(false)}
         id='content-list'>
       {this.props.files.map(file =>
         <SelectableItem
