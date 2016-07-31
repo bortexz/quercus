@@ -249,7 +249,7 @@ return /******/ (function(modules) { // webpackBootstrap
 					initialH: e.pageY
 				};
 
-				// e.preventDefault();
+				 // e.preventDefault();
 
 				_reactDom2.default.findDOMNode(this).addEventListener('mousemove', this._openSelector);
 			}
@@ -437,7 +437,7 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * Given a node, get everything needed to calculate its boundaries
-	 * @param  {HTMLElement} node 
+	 * @param  {HTMLElement} node
 	 * @return {Object}
 	 */
 	exports.default = function (node) {
@@ -497,9 +497,9 @@ return /******/ (function(modules) { // webpackBootstrap
 
 	/**
 	 * Given two objects containing "top", "left", "offsetWidth" and "offsetHeight"
-	 * properties, determine if they collide. 
+	 * properties, determine if they collide.
 	 * @param  {Object|HTMLElement} a
-	 * @param  {Object|HTMLElement} b	 
+	 * @param  {Object|HTMLElement} b
 	 * @return {bool}
 	 */
 

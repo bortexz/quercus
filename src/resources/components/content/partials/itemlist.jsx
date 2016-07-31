@@ -36,7 +36,7 @@ class ItemList extends React.Component {
 
   // Select
   selectItem (e, filename) {
-    // e.stopPropagation()
+    e.stopPropagation()
     this.props.selectItems(List([filename]))
   }
 

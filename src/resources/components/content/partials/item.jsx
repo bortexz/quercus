@@ -6,6 +6,7 @@ class Item extends React.Component {
     return (
       <li
         className={this.getItemClassnames(this.props.file)}
+        onMouseDown={(e) => e.stopPropagation()}
         onClick={this.props.onClick}
         onDoubleClick={this.props.onDoubleClick}>
         <div
