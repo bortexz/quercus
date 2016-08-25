@@ -16,7 +16,6 @@ function _filterFiles (state) {
 
   // Filter
   let filter = state.options.get('filter')
-  // Apply * glob automatically if not found.
   if (filter !== '') {
     files = files.filter(file =>
       (file.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1))
