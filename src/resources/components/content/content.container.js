@@ -1,8 +1,6 @@
 import {connect} from 'react-redux'
 import Content from './content.jsx'
 
-import minimatch from 'minimatch'
-
 import {selectFiles, getFiles} from '../../actions/content'
 import {applyFilter} from '../../actions/options'
 
@@ -18,11 +16,10 @@ function _filterFiles (state) {
 
   // Filter
   let filter = state.options.get('filter')
-  // Apply * glob automatically if not found
-  if (filter.indexOf('*') === -1) filter = filter.concat('*')
+  // Apply * glob automatically if not found.
   if (filter !== '') {
     files = files.filter(file =>
-      minimatch(file.name, filter))
+      (file.name.toLowerCase().indexOf(filter.toLowerCase()) !== -1))
   }
   return files
 }

@@ -13,7 +13,6 @@ export function getFiles (dirpath) {
     throw new Error(`Cannot load path: ${dirpath} message: ${e.message}`)
   }
 
-
   try {
     let items = sh.ls('-lA')
     return items.map(item => {

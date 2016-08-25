@@ -4,6 +4,7 @@ import IPropTypes from 'react-immutable-proptypes'
 import NavbarLeft from './partials/navbar-left.jsx'
 import NavbarCenter from './partials/navbar-center.jsx'
 
+
 class Navbar extends React.Component {
   render () {
     return (
@@ -16,7 +17,7 @@ class Navbar extends React.Component {
         <div className='nav-right'>
           <a className='nav-item'>
             <span>
-              Right nav, fo' what?
+              Somethin' will be here
             </span>
           </a>
         </div>

@@ -39,7 +39,6 @@ class Content extends React.Component {
 
   componentWillReceiveProps (nextProps) {
     // If we have changed directory, remove filter
-    console.log(nextProps.selected)
     if (this.props.current !== nextProps.current) {
       this.setState({
         filter: '',
@@ -59,7 +58,6 @@ class Content extends React.Component {
 
   // on focus of this container, if filter empty, hide
   onFilterBlur () {
-    console.log('blur')
     if (!this.state.filter) {
       this.setState({shouldDisplayFilter: false})
     }

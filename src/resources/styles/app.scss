@@ -3,6 +3,10 @@ html, body {height: 100%;}
 @import './icons';
 @import './vendor/font-awesome-4.6.3/scss/font-awesome';
 
+html {
+  overflow-y: auto;
+}
+
 #react-root {
   width: 100%;
   height: 100%;
@@ -42,7 +46,7 @@ html, body {height: 100%;}
 
   .nav-center {
     flex-wrap: wrap;
-    overflow: scroll;
+    /* overflow: scroll; */
 
     & .nav-item {
       padding: 0px 2px;
@@ -68,7 +72,7 @@ html, body {height: 100%;}
   flex-basis: auto;
   align-items: flex-start;
   height: 100%;
-  overflow: scroll;
+  /* overflow: scroll; */
   padding: 15px;
   width: 200px;
   border-right: 1px solid rgba(0,0,0,0.1)
@@ -76,7 +80,7 @@ html, body {height: 100%;}
 
 #content {
   flex-basis: 100%;
-  overflow: scroll;
+  overflow-y: scroll;
   align-items: flex-start;
   background-color: rgb(98%,98%,98%);
 
