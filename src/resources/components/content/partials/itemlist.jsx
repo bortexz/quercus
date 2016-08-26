@@ -14,7 +14,7 @@ class ItemList extends React.Component {
   render () {
     return (
       <SelectableGroup
-        onSelection={(args) => this.handleSelection(args)}
+        onSelection={this.handleSelection.bind(this)}
         fixedPosition={Boolean(true)}
         selectOnMouseMove={Boolean(true)}
         component='ul'
