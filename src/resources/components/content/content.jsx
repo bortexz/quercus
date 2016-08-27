@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react'
 import IPropTypes from 'react-immutable-proptypes'
-import {List} from 'immutable'
+
 // Partial Components
 import FilterInput from './partials/filter.jsx'
 import ItemList from './partials/itemlist.jsx'
@@ -16,9 +16,7 @@ class Content extends React.Component {
 
   render () {
     return (
-      <div id='content'
-        onMouseDown={() => this.clearSelect()}
-        >
+      <div id='content'>
         <FilterInput
           onChange={e => this.filterChange(e.target.value)}
           shouldDisplay={this.state.shouldDisplayFilter}
@@ -26,15 +24,10 @@ class Content extends React.Component {
           onFilterBlur={() => this.onFilterBlur()} />
 
         <ItemList
-          onSelection={(args) => this.handleSelection(args)}
           {...this.props}
            />
       </div>
     )
-  }
-
-  clearSelect () {
-    this.props.selectItems(List())
   }
 
   componentWillReceiveProps (nextProps) {
@@ -56,7 +49,7 @@ class Content extends React.Component {
     this.setState(newState, () => this.props.applyFilter(value))
   }
 
-  // on focus of this container, if filter empty, hide
+  // on blur filter, if filter empty, hide
   onFilterBlur () {
     if (!this.state.filter) {
       this.setState({shouldDisplayFilter: false})

@@ -11,6 +11,10 @@
   },
   "author": "",
   "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/bertofer/quercus"
+  },
   "devDependencies": {
     "babel-core": "^6.11.4",
     "babel-loader": "^6.2.4",
@@ -45,8 +49,9 @@
     "react": "^15.2.1",
     "react-dom": "^15.2.1",
     "react-immutable-proptypes": "^1.7.1",
+    "react-mousetrap": "^0.1.1",
     "react-redux": "^4.4.5",
-    "react-selectable": "git://github.com/bertofer/react-selectable",
+    "react-selectable": "../../contributions/react-selectable/",
     "redux": "^3.5.2",
     "redux-saga": "^0.11.0",
     "shelljs": "^0.7.2"
