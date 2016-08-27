@@ -33,8 +33,7 @@ class SelectableItemList extends React.Component {
         preventDefault={Boolean(false)}
 
         onMouseDown={this.handleOutsideClick.bind(this)}
-        id={this.props.id}
-      >
+        id={this.props.id}>
         {children}
       </SelectableGroup>
     )
@@ -44,12 +43,8 @@ class SelectableItemList extends React.Component {
   componentWillMount () {
     // Keyboard selection bindings
     let directions = ['up', 'down', 'left', 'right']
-    directions.forEach(dir => this.props.bindShortcut(dir, () => this._selectSingleDirection(dir)))
-    directions.forEach(dir => this.props.bindShortcut(`shift+${dir}`, () => this._selectMultipleDirection(dir)))
-  }
-
-  componentWillReceiveProps (newProps) {
-
+    directions.forEach(dir => this.props.bindShortcut(dir, () => this._selectSingleDirectional(dir)))
+    directions.forEach(dir => this.props.bindShortcut(`shift+${dir}`, () => this._selectMultipleDirectional(dir)))
   }
 
   // Child ref callback
@@ -80,6 +75,9 @@ class SelectableItemList extends React.Component {
     }
     this.props.selectItems(List())
   }
+
+  // TODO: Move the following logic to different file, as most of it is stateless
+  // (except event handlers)
 
   // Functions to select by keyboard events
   _getPositionsMatrix () {
@@ -122,7 +120,33 @@ class SelectableItemList extends React.Component {
 
     let newRow = matrix[node.rowIndex + row]
     if (!newRow) return
-    return newRow[node.columnIndex + column]
+    let elem = {
+      rowIndex: node.rowIndex + row,
+      columnIndex: node.columnIndex + column,
+      elem: newRow[node.columnIndex + column]
+    }
+    return newRow[node.columnIndex + column] ? elem : undefined
+  }
+
+  /**
+   * Return an array of elements between the two specified, both included, and in
+   * same order as the matrix
+   */
+  _getElementsBetween (matrix, node1, node2) {
+    if (node2.rowIndex < node1.rowIndex ||
+        (node2.rowIndex === node1.rowIndex && node2.columnIndex < node1.columnIndex)) {
+      [node1, node2] = [node2, node1]
+    }
+    let arr = []
+    for (let i = node1.rowIndex; i <= node2.rowIndex; i++) {
+      let j = node1.rowIndex === i ? node1.columnIndex : 0
+      let jMax = node2.rowIndex === i ? node2.columnIndex : matrix[0].length - 1
+      for (; j <= jMax; j++) {
+        let elem = matrix[i][j]
+        if (elem) arr.push(elem)
+      }
+    }
+    return arr
   }
 
   /**
@@ -142,11 +166,12 @@ class SelectableItemList extends React.Component {
         }
         return false
       }, this)
-    , this)
+    , this) // Quite annoying that these functions don't let 'this' to pass automatically
     return currentLastElem
   }
 
-  _selectSingleDirection (dir) {
+  // Just arrow key pressed
+  _selectSingleDirectional (dir) {
     if (this.props.selected.size === 0) return
 
     let matrix = this._getPositionsMatrix()
@@ -157,11 +182,48 @@ class SelectableItemList extends React.Component {
       this.props.selectItems(List([lastElem.elem.file.name]))
       return
     }
-    this.props.selectItems(List([nextSelection.file.name]))
+    this.props.selectItems(List([nextSelection.elem.file.name]))
   }
 
-  _selectMultipleDirection (dir) {
+  // When shift+arrowkey is pressed
+  _selectMultipleDirectional (dir) {
     if (this.props.selected.length === 0) return
+
+    let matrix = this._getPositionsMatrix()
+    let lastElem = this._getCurrentLastElemWithPosition(matrix, this.props.selected)
+
+    let nextSelection = this._getDirectionalElement(matrix, lastElem, dir)
+
+    if (!nextSelection) {
+      return
+    }
+    let elementsBetween = this._getElementsBetween(matrix, lastElem, nextSelection)
+    elementsBetween.splice(elementsBetween.findIndex(elem => elem.file.name === nextSelection.elem.file.name), 1)
+    let newList
+    if (this.props.selected.indexOf(nextSelection.elem.file.name) !== -1) {
+      newList = this._removeFromSelection(this.props.selected,
+        elementsBetween.map(elem => elem.file.name),
+        nextSelection.elem.file.name)
+    } else {
+      newList = this._addToSelection(this.props.selected,
+        elementsBetween.map(elem => elem.file.name),
+        nextSelection.elem.file.name)
+    }
+
+    this.props.selectItems(newList)
+  }
+
+  _addToSelection (selected, newElems, nextSelection) {
+    return selected.concat(newElems).toSet().toList().concat(nextSelection) // Trick to do unique over a list
+  }
+
+  _removeFromSelection (selected, newElems, nextSelection) {
+    for (let i = selected.size; i >= 0; i--) {
+      if (newElems.indexOf(selected.get(i)) !== -1) {
+        selected = selected.delete(i)
+      }
+    }
+    return selected.concat(nextSelection)
   }
 }
 
