@@ -17,6 +17,8 @@ import App from './components/app/app.jsx'
 import { getFiles } from './actions/content'
 import { loadItems } from './actions/sidebar'
 
+import { getHomeDir } from './system'
+
 const sagaMiddleware = createSagaMiddleware()
 
 let store = createStore(
@@ -35,4 +37,4 @@ render(
 )
 
 store.dispatch(loadItems())
-store.dispatch(getFiles('/Users/alberto'))
+store.dispatch(getFiles(getHomeDir()))
