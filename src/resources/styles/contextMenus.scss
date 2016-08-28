@@ -26,8 +26,12 @@
     color: #373a3c;
     text-align: inherit;
     white-space: nowrap;
-    /*background: 0 0;*/
+    background: 0 0;
     border: 0;
+}
+
+.react-context-menu-link i {
+  vertical-align: baseline;
 }
 
 .react-context-menu-link.active,

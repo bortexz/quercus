@@ -4,7 +4,6 @@ import IPropTypes from 'react-immutable-proptypes'
 import NavbarLeft from './partials/navbar-left.jsx'
 import NavbarCenter from './partials/navbar-center.jsx'
 
-
 class Navbar extends React.Component {
   render () {
     return (
@@ -37,7 +36,5 @@ class Navbar extends React.Component {
     }
   }
 }
-
-
 
 export default Navbar
