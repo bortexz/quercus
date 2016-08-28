@@ -10,6 +10,8 @@ import SidebarContainer from '../sidebar/sidebar.container'
 import ContentContainer from '../content/content.container'
 import ErrorsContainer from '../errors/errors.container'
 import NavbarContainer from '../navbar/navbar.container'
+// Context Menus
+import FileContextMenu from '../contextMenus/file.jsx'
 
 import {mouseTrap} from 'react-mousetrap'
 
@@ -17,14 +19,14 @@ class App extends React.Component {
   render () {
     return (
       <div id='app'
-        tabIndex='1'
-        >
+        tabIndex='1'>
         <NavbarContainer />
         <div id='main-container'>
           <SidebarContainer />
           <ContentContainer />
           <ErrorsContainer />
         </div>
+        <FileContextMenu />
       </div>
     )
   }

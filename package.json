@@ -47,6 +47,7 @@
     "minimatch": "^3.0.3",
     "mkdirp": "^0.5.1",
     "react": "^15.2.1",
+    "react-contextmenu": "^1.6.2",
     "react-dom": "^15.2.1",
     "react-immutable-proptypes": "^1.7.1",
     "react-mousetrap": "^0.1.1",

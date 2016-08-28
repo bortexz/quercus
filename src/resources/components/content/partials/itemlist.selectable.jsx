@@ -76,7 +76,7 @@ class SelectableItemList extends React.Component {
     this.props.selectItems(List())
   }
 
-  // TODO: Move the following logic to different file, as most of it is stateless
+  // TODO: Move the following logic to different file, as most of it is stateless?
   // (except event handlers)
 
   // Functions to select by keyboard events

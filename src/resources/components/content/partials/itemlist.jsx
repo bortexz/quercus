@@ -1,15 +1,18 @@
 import React from 'react'
 import {List} from 'immutable'
 import path from 'path'
-// TODO: Replace by the npm one once updated and e.preventDefault() changed https://github.com/unclecheese/react-selectable/issues/15
-// import { SelectableGroup, createSelectable } from 'react-selectable'
 import SelectableItemList, { createSelectableItem } from './itemlist.selectable.jsx'
+
+import {ContextMenuLayer} from 'react-contextmenu'
 
 import {openFile} from '../../../system/files'
 
 import Item from './item.jsx'
 
-let SelectableItem = createSelectableItem(Item)
+let ContextMenuItem = ContextMenuLayer('fileContextMenu', props => ({
+  file: props.file
+}))(Item)
+let SelectableItem = createSelectableItem(ContextMenuItem)
 
 class ItemList extends React.Component {
   render () {
