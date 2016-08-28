@@ -5,13 +5,20 @@ import { watch } from '../system/fswatch'
 
 import {getFilesOk, getFilesErr, GET_FILES, updatedFiles} from '../actions/content'
 
+// Need to do it 'outside' to do it sync
+let watcher
+window.onbeforeunload = () => {
+  if (watcher) {
+    watcher.close()
+  }
+}
+
 function createFileWatcherChannel (path) {
   return eventChannel(emit => {
     const pathChange = (eventType, filename) => {
       emit(updatedFiles())
     }
-
-    const watcher = watch(path, pathChange)
+    watcher = watch(path, pathChange)
 
     const unsubscribe = () => {
       watcher.close()
@@ -36,6 +43,7 @@ function * watcherListener (path) {
   }
 }
 
+// The current watcher, used to cancel it on events
 let currentDirWatcher
 function * getFilesGen (action) {
   try {
