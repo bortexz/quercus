@@ -18,7 +18,7 @@ export function getFiles (dirpath) {
     return items.map(item => {
       return {
         name: item.name,
-        isDirectory: item.isDirectory()
+        isDirectory: item.locked ? false : item.isDirectory()
       }
     })
   } catch (e) {
