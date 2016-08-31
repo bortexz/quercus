@@ -11,7 +11,8 @@ import Item from './item.jsx'
 
 let ContextMenuItem = ContextMenuLayer('fileContextMenu', (props) => ({
   file: props.file,
-  selectedList: props.selectedList
+  selectedList: props.selectedList,
+  current: props.current
 }))(Item)
 let SelectableItem = createSelectableItem(ContextMenuItem)
 
@@ -27,12 +28,17 @@ class ItemList extends React.Component {
             selectableKey={file.name}
             file={file}
             key={file.name}
+            /* handlers */
             onClick={(e) => this.selectItem(e, file.name)}
             onMouseDown={(e) => e.stopPropagation()}
             onDoubleClick={() => this.doubleClick(file)}
+            /* context menu info */
             selected={this.props.selected.indexOf(file.name) !== -1}
             selectedList={this.props.selected}
             current={this.props.current}
+            /* context menu actions */
+            onMovedToTrash={this.props.movedToTrash}
+            onCopied={this.props.copiedToClipboard}
           />
         )}
 
@@ -53,6 +59,10 @@ class ItemList extends React.Component {
     } else {
       openFile(fullpath)
     }
+  }
+
+  moveToTrash () {
+    console.log(arguments)
   }
 }
 

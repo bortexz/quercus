@@ -1,5 +1,8 @@
 import React from 'react'
 import { ContextMenu, MenuItem, connect } from 'react-contextmenu'
+import * as path from 'path'
+
+import { moveToTrash } from '~/system/trash'
 
 class FileContextMenu extends React.Component {
   render () {
@@ -38,8 +41,15 @@ class FileContextMenu extends React.Component {
     // props.dispatchCopyFiles
   }
 
-  handleMoveToTrash (props) {
-    // props.dispatchMoveToTrash
+  handleMoveToTrash (e, props) {
+    if (props.selectedList.indexOf(props.file.name) !== -1) {
+      let files = []
+      files = props.selectedList.map(file => path.join(props.current, file)).toArray()
+      moveToTrash(files)
+    } else {
+      let file = path.join(props.current, props.file.name)
+      moveToTrash(file)
+    }
   }
 
   // react-contextmenu complains about not specifying onClick method.
