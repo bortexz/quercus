@@ -15,6 +15,11 @@ Go quickly to what you are looking for.
 
 ![Filter](https://i.gyazo.com/51859a5852367da33ef8c26162f69cbd.gif)
 
+## Quickly see hidden files
+Incredibly, this option is super difficult in default file managers
+
+![Hidden files](https://i.gyazo.com/13b861608a10da27033d9dc2cfd67bf2.gif)
+
 ## Configuration
 It allows to configure the sidebar with the file ~/.quercus/config.json
 
@@ -58,7 +63,8 @@ It allows to configure the sidebar with the file ~/.quercus/config.json
                 "path": "/Users/alberto/Downloads/Series"
             }
         ]
-    }
+    },
+    "Startpath": "/Users/alberto"
 }
 ```
 

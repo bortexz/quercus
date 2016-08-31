@@ -10,14 +10,12 @@ import Reducers from './reducers'
 // Sagas
 import { filesSaga } from './middlewares/files'
 import { sidebarSaga } from './middlewares/sidebar'
+import { configSaga } from './middlewares/config'
 
 // App component
 import App from './components/app/app.jsx'
 
-import { getFiles } from './actions/content'
-import { loadItems } from './actions/sidebar'
-
-import { getHomeDir } from './system'
+import { loadConfig } from './actions/config'
 
 const sagaMiddleware = createSagaMiddleware()
 
@@ -28,6 +26,7 @@ let store = createStore(
 
 sagaMiddleware.run(filesSaga)
 sagaMiddleware.run(sidebarSaga)
+sagaMiddleware.run(configSaga)
 
 render(
   <Provider store={store}>
@@ -36,5 +35,4 @@ render(
   document.getElementById('react-root')
 )
 
-store.dispatch(loadItems())
-store.dispatch(getFiles(getHomeDir()))
+store.dispatch(loadConfig())

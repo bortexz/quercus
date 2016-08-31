@@ -83,11 +83,11 @@ export function getHomeDir () {
   return os.homedir()
 }
 
-export function getSidebarConfig () {
+export function getConfig () {
   return new Promise((resolve, reject) => {
     _getConfig((err, json) => {
       if (err) reject(err)
-      else resolve(json.Sidebar)
+      else resolve(json)
     })
   })
 }
