@@ -4,7 +4,7 @@ import path from 'path'
 import SelectableItemList, { createSelectableItem } from './itemlist.selectable.jsx'
 
 import {ContextMenuLayer} from 'react-contextmenu'
-
+import classNames from 'classnames'
 import {openFile} from '../../../system/files'
 
 import Item from './item.jsx'
@@ -21,7 +21,6 @@ class ItemList extends React.Component {
     return (
       <SelectableItemList
         id='content-list'
-        domItemsArray={this._domItemsArray}
         {...this.props}>
         {this.props.files.map(file =>
           <SelectableItem
@@ -46,6 +45,12 @@ class ItemList extends React.Component {
     )
   }
 
+  getItemClassnames (file) {
+    return classNames('somethings', {
+      selected: this.props.selected.indexOf(file.name) !== -1
+    })
+  }
+
   // Select
   selectItem (e, filename) {
     e.stopPropagation()
@@ -59,10 +64,6 @@ class ItemList extends React.Component {
     } else {
       openFile(fullpath)
     }
-  }
-
-  moveToTrash () {
-    console.log(arguments)
   }
 }
 

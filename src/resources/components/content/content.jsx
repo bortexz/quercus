@@ -5,6 +5,8 @@ import IPropTypes from 'react-immutable-proptypes'
 import FilterInput from './partials/filter.jsx'
 import ItemList from './partials/itemlist.jsx'
 
+// Context menu layer
+
 class Content extends React.Component {
 
   constructor (props) {
@@ -67,4 +69,8 @@ class Content extends React.Component {
   }
 }
 
+// Create contextmenu layer
+
+
+// export default ContextMenuLayer('contentContextMenu')(Content)
 export default Content

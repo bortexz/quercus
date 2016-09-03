@@ -6,6 +6,7 @@ export function buildDefault (opts) {
         name: 'Home',
         path: opts.homedir
       }]
-    }
+    },
+    Startpath: opts.homedir
   }
 }

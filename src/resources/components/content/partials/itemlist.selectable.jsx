@@ -6,6 +6,8 @@ import { SelectableGroup, createSelectable } from 'react-selectable'
 import { mouseTrap } from 'react-mousetrap'
 
 import { unionStringLists } from '~/utils/immutable'
+import { ContextMenuLayer } from 'react-contextmenu'
+
 /*
   High order component to encapsulate all the selectable logic of the item list
 */
@@ -31,6 +33,8 @@ class SelectableItemList extends React.Component {
         selectOnMouseMove={Boolean(true)}
         component='ul'
         preventDefault={Boolean(false)}
+
+        onContextMenu={(e) => e.stopPropagation()}
 
         onMouseDown={this.handleOutsideClick.bind(this)}
         id={this.props.id}>
@@ -232,4 +236,5 @@ export function createSelectableItem (item) {
   return createSelectable(item)
 }
 
-export default mouseTrap(SelectableItemList)
+// export default mouseTrap(SelectableItemList)
+export default ContextMenuLayer('contentContextMenu')(mouseTrap(SelectableItemList))

@@ -10,13 +10,15 @@ import {clipboard} from 'electron'
 
 /**
  * Where files is a unique path or an array of them
+ * @param {Array.<String>} files Array of filepaths to copy
  */
 export function copyFiles (files) {
-  if (!files instanceof Array) files = [files]
-}
-
-export function cutFiles () {
-
+  if (!(files instanceof Array)) files = [files]
+  let clipboardText = '[quercus/copy]\n'
+  files.forEach(file => {
+    clipboardText = clipboardText.concat(`${file}\n`)
+  })
+  clipboard.writeText(clipboardText)
 }
 
 /**

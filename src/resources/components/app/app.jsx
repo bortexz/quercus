@@ -11,7 +11,9 @@ import ContentContainer from '../content/content.container'
 import ErrorsContainer from '../errors/errors.container'
 import NavbarContainer from '../navbar/navbar.container'
 // Context Menus
-import FileContextMenu from '../contextMenus/file.jsx'
+// import FileContextMenu from '../contextMenus/file.jsx'
+import ContextMenus
+ from '../contextMenus/contextmenus.jsx'
 
 import {mouseTrap} from 'react-mousetrap'
 
@@ -26,7 +28,7 @@ class App extends React.Component {
           <ContentContainer />
           <ErrorsContainer />
         </div>
-        <FileContextMenu />
+        <ContextMenus />
       </div>
     )
   }

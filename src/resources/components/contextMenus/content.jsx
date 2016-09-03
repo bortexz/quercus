@@ -5,19 +5,19 @@ import * as path from 'path'
 import { moveToTrash } from '~/system/trash'
 import { copyFiles } from '~/system/clipboard'
 
-class FileContextMenu extends React.Component {
+class ContentContextMenu extends React.Component {
   render () {
     // Sometimes this is called without being the contextmenu open
     let props = this.props.item
     return (
-      <ContextMenu identifier={'fileContextMenu'}>
-        <MenuItem onClick={this.nop} disabled> {this.getCMName(props)}
+      <ContextMenu identifier={'contentContextMenu'}>
+        <MenuItem onClick={this.nop} disabled> FOLDER
         </MenuItem>
         <MenuItem onClick={this.handleCopy} data={props}>
-          <i className='fa fa-copy'></i> <span>Copy</span>
+          <i className='fa fa-copy'></i> <span>FolderS</span>
         </MenuItem>
         <MenuItem onClick={this.handleMoveToTrash} data={props}>
-          <i className='fa fa-trash-o'></i> <span>Move to trash</span>
+          <i className='fa fa-trash-o'></i> <span>FolderT</span>
         </MenuItem>
       </ContextMenu>
     )
@@ -63,4 +63,4 @@ class FileContextMenu extends React.Component {
   nop () {}
 }
 
-export default connect(FileContextMenu)
+export default connect(ContentContextMenu)

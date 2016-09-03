@@ -86,6 +86,15 @@ html {
 
   position: relative;
 
+  .react-context-menu-wrapper {
+    flex-basis: 100%;
+    overflow-y: scroll;
+    // align-items: flex-start;
+    background-color: rgb(98%,98%,98%);
+
+    position: relative;
+  }
+
   #filter-content-search {
     position: fixed;
     right: 0;
@@ -148,43 +157,56 @@ html {
     align-content: flex-start;
     flex-wrap: wrap;
 
-    .content-list-item {
-      padding: 10px;
-      margin: 10px;
+    .react-context-menu-wrapper {
 
-      border-radius: 10px;
+        max-width: 120px;
+        height: 110px;
 
-      align-items: flex-start;
-      width: 140px;
-      height: 115px;
+        margin: 15px;
 
-      display: flex;
-      flex-direction: column;
-      align-items: center;
+        display: flex;
+        justify-content: center;
 
-      border: 1px solid transparent;
+        align-items: center;
 
-      &:hover {
-        border: 1px solid rgba(0,0,0,0.1);
-        box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.20);
-      }
+        .content-list-item {
+          width: 100%;
+          height: 100%;
 
-      span {
-        overflow: hidden;
-        max-width: 100%;
-        text-overflow: ellipsis;
-        white-space: nowrap;
-      }
+          border: 1px solid transparent;
+
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+
+          justify-content: space-around;
+
+          padding-top: 5px;
+
+          border-radius: 10px;
+          border: 1px solid transparent;
+
+          &:hover {
+            border: 1px solid rgba(0,0,0,0.1);
+          }
+
+          span {
+            overflow: hidden;
+            max-width: 100%;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+          }
+        }
+
+        .selected {
+          background-color: white;
+          border: 1px solid rgba(0,0,0,0.3);
+          &:hover {
+            border: 1px solid rgba(0,0,0,0.3);
+          }
+        }
     }
 
-    .selected {
-      border: 1px solid rgba(0,0,0,0.3);
-      box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.40);
-      &:hover {
-        border: 1px solid rgba(0,0,0,0.3);
-        box-shadow: 0px 0px 5px 0px rgba(50, 50, 50, 0.40);
-      }
-    }
   }
 }
 
