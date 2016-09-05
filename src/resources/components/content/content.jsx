@@ -70,7 +70,5 @@ class Content extends React.Component {
 }
 
 // Create contextmenu layer
-
-
 // export default ContextMenuLayer('contentContextMenu')(Content)
 export default Content
