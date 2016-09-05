@@ -32,13 +32,6 @@ class ItemList extends React.Component {
   }
 
   render () {
-    // Trick to get refs of dynamic children. This ref will be used for selection properties,
-    // so it's better to have it here
-    // let children = React.Children.map(this.props.children, child => {
-    //   return React.cloneElement(child, {
-    //     ref: this.referenceChild.bind(this)
-    //   })
-    // })
     return (
       <SelectableGroup
         id='content-list'
@@ -50,28 +43,29 @@ class ItemList extends React.Component {
 
         onContextMenu={this.shouldStopPropagation.bind(this)}
 
-        onMouseDown={this.handleOutsideClick.bind(this)}>
+        onMouseDown={this.handleOutsideClick.bind(this)}
+
+        >
         {this.props.files.map(file =>
           <SelectableItem
             selectableKey={file.name}
             file={file}
             key={file.name}
             ref={this.referenceChild.bind(this)}
+            selected={this.props.selected.indexOf(file.name) !== -1}
 
             /* handlers */
             onClick={(e) => this.selectItem(e, file.name)}
             onMouseDown={(e) => e.stopPropagation()}
             onDoubleClick={() => this.doubleClick(file)}
 
-            selected={this.props.selected.indexOf(file.name) !== -1}
-
             /* context menu info */
             selectedList={this.props.selected}
             current={this.props.current}
-            /* context menu actions */
+            /* context menu action events */
+
             onMovedToTrash={this.props.movedToTrash}
             onCopied={this.props.copiedToClipboard}
-            /* ref child */
           />
         )}
       </SelectableGroup>
@@ -304,6 +298,7 @@ class ItemList extends React.Component {
   }
 }
 
-// export default mouseTrap(ItemList)
-export default ContextMenuLayer('contentContextMenu')(mouseTrap(ItemList))
+export default ContextMenuLayer('contentContextMenu', (props) => ({
+  currentDir: props.current
+}))(mouseTrap(ItemList))
 

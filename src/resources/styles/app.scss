@@ -77,12 +77,12 @@ html {
   width: 200px;
   border-right: 1px solid rgba(0,0,0,0.1);
 
-  overflow-y: scroll;
+  overflow-y: auto;
 }
 
 #content {
   flex-basis: 100%;
-  overflow-y: scroll;
+  overflow-y: auto;
   align-items: flex-start;
   background-color: rgb(98%,98%,98%);
 
@@ -90,7 +90,6 @@ html {
 
   .react-context-menu-wrapper {
     flex-basis: 100%;
-    overflow-y: scroll;
     // align-items: flex-start;
     background-color: rgb(98%,98%,98%);
 

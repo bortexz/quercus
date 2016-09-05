@@ -24,7 +24,7 @@ class FileContextMenu extends React.Component {
   }
 
   getCMName (props) {
-    if (Object.keys(props).length !== 0) {
+    if (props.selectedList) {
       if (props.selectedList.indexOf(props.file.name) !== -1) {
         if (props.selectedList.size !== 1) {
           return `${props.selectedList.size} Items`
