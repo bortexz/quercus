@@ -49,6 +49,8 @@
     "mkdirp": "^0.5.1",
     "react": "^15.2.1",
     "react-contextmenu": "^1.6.2",
+    "react-dnd": "^2.1.4",
+    "react-dnd-html5-backend": "^2.1.2",
     "react-dom": "^15.2.1",
     "react-immutable-proptypes": "^1.7.1",
     "react-mousetrap": "^0.1.1",

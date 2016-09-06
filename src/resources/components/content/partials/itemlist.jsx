@@ -11,7 +11,15 @@ import { ContextMenuLayer } from 'react-contextmenu'
 import path from 'path'
 import {openFile} from '../../../system/files'
 
-// Convert Item into contextmenu layer, and selectable item.
+import { DragSource } from 'react-dnd'
+
+// Dragging options
+
+
+
+
+
+// Make a context menu of the item
 import Item from './item.jsx'
 let ContextMenuItem = ContextMenuLayer('fileContextMenu', (props) => ({
   file: props.file,
@@ -19,7 +27,43 @@ let ContextMenuItem = ContextMenuLayer('fileContextMenu', (props) => ({
   current: props.current
 }))(Item)
 
+// Make it selectable
 let SelectableItem = createSelectable(ContextMenuItem)
+
+// Make it draggable
+
+/**
+ * Implements the drag source contract.
+ */
+const fileDragSource = {
+  beginDrag (props) {
+    return {
+      text: props.text
+    }
+  }
+}
+
+/**
+ * Specifies the props to inject into your component.
+ */
+function collect (connect, monitor) {
+  return {
+    connectDragSource: connect.dragSource(),
+    isDragging: monitor.isDragging()
+  }
+}
+// if propTypes, add the cones 'collected' to it
+
+class DragSourceItem extends React.Component {
+  render () {
+    // const { isDragging, connectDragSource } = this.props
+    // return connectDragSource(
+    return (<SelectableItem {...this.props} />)
+    // )
+  }
+}
+
+let SelectableDraggableItem = DragSource('file', fileDragSource, collect)(DragSourceItem)
 
 /*
   High order component to encapsulate all the selectable logic of the item list
@@ -46,8 +90,8 @@ class ItemList extends React.Component {
         onMouseDown={this.handleOutsideClick.bind(this)}
 
         >
-        {this.props.files.map(file =>
-          <SelectableItem
+        {this.props.files.map(file => (
+          <SelectableDraggableItem
             selectableKey={file.name}
             file={file}
             key={file.name}
@@ -67,7 +111,8 @@ class ItemList extends React.Component {
             onMovedToTrash={this.props.movedToTrash}
             onCopied={this.props.copiedToClipboard}
           />
-        )}
+        ))
+        }
       </SelectableGroup>
     )
   }
@@ -298,6 +343,7 @@ class ItemList extends React.Component {
   }
 }
 
+// Context menu of the folder
 export default ContextMenuLayer('contentContextMenu', (props) => ({
   currentDir: props.current
 }))(mouseTrap(ItemList))

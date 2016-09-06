@@ -17,17 +17,31 @@ import ContextMenus
 
 import {mouseTrap} from 'react-mousetrap'
 
+// react-dnd
+import { DragDropContext } from 'react-dnd'
+import HTML5Backend from 'react-dnd-html5-backend'
+
+class MainContainer extends React.Component {
+  render () {
+    return (
+      <div id='main-container'>
+        <SidebarContainer />
+        <ContentContainer />
+        <ErrorsContainer />
+      </div>
+    )
+  }
+}
+
+let DroppableMainContainer = DragDropContext(HTML5Backend)(MainContainer)
+
 class App extends React.Component {
   render () {
     return (
       <div id='app'
         tabIndex='1'>
         <NavbarContainer />
-        <div id='main-container'>
-          <SidebarContainer />
-          <ContentContainer />
-          <ErrorsContainer />
-        </div>
+        <DroppableMainContainer />
         <ContextMenus />
       </div>
     )

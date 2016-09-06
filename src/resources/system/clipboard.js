@@ -29,16 +29,16 @@ export function copyFiles (files) {
  */
 export function pasteFiles (dest, cut) {
   // Get files to copy
-  let text = clipboard.readText()
-  if (!(text.indexOf(QUERCUS_COPY_PREFIX) === 0)) return
+  // let text = clipboard.readText()
+  // if (!(text.indexOf(QUERCUS_COPY_PREFIX) === 0)) return
 
-  let files = text
-    .split('\n')
-    .splice(1)
-    .filter(elem => elem !== '')
+  // let files = text
+  //   .split('\n')
+  //   .slice(1)
+  //   .filter(elem => elem !== '')
 
-  // TODO: Not reliable, move to main process
-  sh.cp('-R', files, dest)
+  // // TODO: Not reliable, move to main process
+  // sh.cp('-R', files, dest)
 
   if (cut) return // TODO: Do RM of source
 }
