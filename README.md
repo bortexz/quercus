@@ -1,5 +1,10 @@
 ## Under development
-This project is still under heavy development, so expect some bugs and features not working!
+This project is still under heavy development, so expect some bugs and features not working
+
+## Intention of this project
+I started this project as a way to learn React and some of the related tools to it, as well as getting familiar with some Electron stuff.
+
+I don't know how long I will be developing this, don't expect a production-ready software for now!
 
 # Quercus file manager
 Quercus is a file manager built completely in modern Web technologies. With the goal of being customizable and extensible.
