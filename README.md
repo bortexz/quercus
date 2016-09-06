@@ -1,5 +1,5 @@
 ## Under development
-This project is still under heave development, so expect some bugs and features not working!
+This project is still under heavy development, so expect some bugs and features not working!
 
 # Quercus file manager
 Quercus is a file manager built completely in modern Web technologies. With the goal of being customizable and extensible.

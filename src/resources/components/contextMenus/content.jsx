@@ -15,12 +15,6 @@ class ContentContextMenu extends React.Component {
         <MenuItem onClick={this.handlePaste} data={props}>
           <i className='fa fa-paste'></i> <span>Paste</span>
         </MenuItem>
-        <MenuItem onClick={this.nop} data={props}>
-          <i className='fa fa-scissors'></i> <span>Paste and delete source </span>
-        </MenuItem>
-        <MenuItem onClick={this.nop} data={props}>
-          <i className='fa fa-folder-open'></i> <span>New folder </span>
-        </MenuItem>
       </ContextMenu>
     )
   }
