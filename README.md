@@ -77,11 +77,15 @@ It allows to configure the sidebar with the file ~/.quercus/config.json
 ## Run
 To run it,
 
-`npm install`
+`yarn` or `npm install`
 
 and then,
 
 `npm run start` or `npm run start-watch` for livereloading.
+
+## To Build
+
+`npm run build`
 
 ## License
 

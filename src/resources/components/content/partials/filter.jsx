@@ -5,10 +5,10 @@ class FilterInput extends React.Component {
   render () {
     return (
       <div id='filter-content-search' className={this.containerClassnames()}>
-        <label htmlFor='content-filter'>Filter</label>
         <input
           type='text'
           name='content-filter'
+          placeholder="Search"
           value={this.props.value}
           autoFocus
           onChange={this.props.onChange}
@@ -18,9 +18,7 @@ class FilterInput extends React.Component {
   }
 
   containerClassnames () {
-    return classNames('', {
-      'disappear': !this.props.shouldDisplay
-    })
+    return classNames('disappear')
   }
 }
 

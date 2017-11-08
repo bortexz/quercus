@@ -13,13 +13,13 @@ class Navbar extends React.Component {
           current={this.props.navigation.get('current')}
           getFiles={this.props.getFiles} />
 
-        <div className='nav-right'>
+        {/* <div className='nav-right'>
           <a className='nav-item'>
             <span>
               Somethin' will be here
             </span>
           </a>
-        </div>
+        </div> */}
       </div>
     )
   }

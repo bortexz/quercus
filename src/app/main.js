@@ -24,7 +24,8 @@ function createWindow () {
     width: 1000,
     height: 600,
     minWidth: 400,
-    minHeight: 200
+    minHeight: 200,
+    frame: false
   }
   mainWindow = new BrowserWindow(options)
 
@@ -40,14 +41,16 @@ function createWindow () {
 
   // and load the index.html of the app.
   mainWindow.loadURL(ELECTRON_START_URL)
-
+  mainWindow.openDevTools();
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
     mainWindow = null
   })
 }
 
+
 app.on('ready', createWindow)
+
 
 // Quit when all windows are closed.
 app.on('window-all-closed', function () {

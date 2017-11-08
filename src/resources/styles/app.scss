@@ -5,13 +5,34 @@ html, body {height: 100%;}
 @import './vendor/font-awesome-4.6.3/scss/font-awesome';
 
 html {
-  overflow-y: auto;
+  overflow-y: hidden;
 }
 
 #react-root {
   width: 100%;
   height: 100%;
 }
+
+
+.title{
+  -webkit-app-region: drag;  
+  background: #2e3a4d;
+  margin: 0px !important;
+  color: #fff;
+  padding: 20px 20px 20px 30px;
+  font-weight: 300;
+  font-size: 16px;
+}
+
+.title .fa-times,.title .fa-minus{
+  color: #fff;
+  cursor: pointer;
+  padding-left: 20px;
+  -webkit-app-region: no-drag;
+  font-weight: 300;
+  font-size: 15px;
+}
+
 
 #app {
   height: 100%;
@@ -117,8 +138,24 @@ html {
 
     /* Efect */
     &.disappear {
-      top: 0px;
+      // position: absolute;
+      top: 60px;
+      z-index: 999;
       transition: top .1s linear;
+      // -webkit-app-region: drag;  
+      // background: #2e3a4d;
+      border: none;
+      // color: #ccc;
+      // input{
+      //   background: #2e3a4d;
+      //   color: #fff;
+      // }
+      // margin: 0px !important;
+      // color: #fff;
+      // padding: 20px 20px 20px 30px;
+      // font-weight: 300;
+      // font-size: 16px;
+
     }
 
     /* Content search input */
