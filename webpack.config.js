@@ -1,38 +1,34 @@
-'use strict'
-let CopyWebpackPlugin = require('copy-webpack-plugin')
-let path = require('path')
-let electron = require('electron-connect').server.create()
-let WebpackOnBuildPlugin = require('on-build-webpack')
+const webpack = require('webpack');
+const path = require('path');
+const HtmlWebpackPlugin = require('html-webpack-plugin');
 
-var ENV = process.env.npm_lifecycle_event
-var isWatching = ENV === 'start-watch'
-
-let config = {
-  context: path.join(__dirname, 'src'),
-  entry: './resources/main.jsx',
+module.exports = {
   devtool: 'source-map',
-  target: 'electron',
+  entry: {
+  app: [
+    path.join(__dirname, 'src' , './resources/main.jsx'),
+  ]
+  },
+  target: "electron-renderer",
   output: {
     filename: 'bundle.js',
     path: path.join(__dirname, 'build')
   },
 
-  // Resolve
-  resolve: {
-    modules: [
-      path.resolve('./src/resources/'),
-      path.resolve('./node_modules')
-    ]
-  },
-
   plugins: [
-    new CopyWebpackPlugin([
-      {
-        from: './resources/index.html',
-        to: '../build/index.html'
-      }
-    ])
+    new HtmlWebpackPlugin({
+      template: './src/index.html',
+      inject: 'body',
+      hash: true,
+      chunks: ['vendor', 'app']
+    }),
+
+    new webpack.optimize.CommonsChunkPlugin({
+      name: "vendor",
+      minChunks: module => /node_modules/.test(module.resource)
+    })
   ],
+
   module: {
     loaders: [
       { test: /\.(js|jsx)$/,
@@ -40,15 +36,12 @@ let config = {
         exclude: /node_modules/,
         query: {
           cacheDirectory: true,
-          presets: ['es2015', 'react'],
-          plugins: [ 'transform-runtime', ['babel-root-import', {
-            'rootPathSuffix': './src/resources'
-          }]]
+          presets: ['react']
         }
       },
       {
         test: /\.(scss|sass)$/,
-        loaders: ['style', 'css', 'sass']
+        loaders: ['style-loader', 'css-loader', 'sass-loader']
       },
       // fonts etc..
       {test: /\.svg(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader?mimetype=image/svg+xml'},
@@ -58,19 +51,5 @@ let config = {
       {test: /\.eot(\?v=\d+\.\d+\.\d+)?$/, loader: 'file-loader'}
     ]
   }
-}
 
-if (isWatching) {
-  config.plugins.push(
-    new WebpackOnBuildPlugin(function (stats) {
-      if (!config.reload) {
-        config.reload = true
-        electron.start()
-      } else {
-        electron.reload()
-      }
-    })
-  )
 }
-
-module.exports = config

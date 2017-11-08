@@ -2,8 +2,8 @@ import React from 'react'
 import { ContextMenu, MenuItem, connect } from 'react-contextmenu'
 import * as path from 'path'
 
-import { moveToTrash } from '~/system/trash'
-import { copyFiles } from '~/system/clipboard'
+import { moveToTrash } from '../../system/trash'
+import { copyFiles } from '../../system/clipboard'
 
 class FileContextMenu extends React.Component {
   render () {

@@ -5,7 +5,7 @@ import {List} from 'immutable'
 import { SelectableGroup, createSelectable } from 'react-selectable'
 import { mouseTrap } from 'react-mousetrap'
 
-import { unionStringLists } from '~/utils/immutable'
+import { unionStringLists } from '../../../utils/immutable'
 import { ContextMenuLayer } from 'react-contextmenu'
 
 import path from 'path'

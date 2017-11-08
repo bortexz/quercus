@@ -1,5 +1,8 @@
-import electron from 'electron'
-import {client as livereload} from 'electron-connect'
+const electron = require('electron');
+const path = require('path');
+const url = require('url');
+
+const isDev = true;
 
 // TODO: Add developer extensions automatically if not installed
 // import installExtension, { REDUX_DEVTOOLS } from 'electron-devtools-installer';
@@ -25,12 +28,18 @@ function createWindow () {
   }
   mainWindow = new BrowserWindow(options)
 
-  // and load the index.html of the app.
-  mainWindow.loadURL(`file://${__dirname}/../../build/index.html`)
+  let ELECTRON_START_URL = url.format({
+    pathname: path.join(__dirname, '/../build/index.html'),
+    protocol: 'file:',
+    slashes: true
+  });
 
-  if (npmLifecycle === 'start-watch') {
-    livereload.create(mainWindow)
-  }
+  if(isDev){
+    ELECTRON_START_URL='http://localhost:3000';
+   }
+
+  // and load the index.html of the app.
+  mainWindow.loadURL(ELECTRON_START_URL)
 
   // Emitted when the window is closed.
   mainWindow.on('closed', function () {
