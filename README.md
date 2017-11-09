@@ -1,30 +1,28 @@
-## Under development
-This project is still under heavy development, so expect some bugs and features not working
+## Querus
+ Help is really needed to speed up the developement of
 
-## Intention of this project
-I started this project as a way to learn React and some of the related tools to it, as well as getting familiar with some Electron stuff.
+## Things to do
+- [ ] Remove unused packages
+- [ ] Upgrade all packages
+- [ ] Reogranize scss using BEM
+- [ ] Use fontello instead of font awesome
+- [ ] More option to context menu ( properties, Open with)
+- [ ] Editable url bar
+- [ ] Status bar
+- [ ] Displaying list of drives in right
+- [ ] Unit testing needed
+- [ ] Different views ( details view)
+- [ ] Preview thumbnail in case of images and videos
+- [ ] Basic shortcust like copy, paste etc..
+- [ ] Full search in all drives
+- [ ] Ability to connect to FTP
+- [ ] Needs git page
+- [ ] Configurable theme using external css file
 
-I don't know how long I will be developing this, don't expect a production-ready software for now!
+Here is the Trello Board https://trello.com/b/ese7aQNR/quercus
 
-# Quercus file manager
-Quercus is a file manager built completely in modern Web technologies. With the goal of being customizable and extensible.
+![Main screen](image.PNG)
 
-![Main screen](https://i.gyazo.com/ba69fc4538552abec9236531957d42da.png)
-
-## Navigation breadcrumb
-To come back to any level of the tree structure!
-
-![Breadcrumb](https://i.gyazo.com/ba64ef432ac452bd336d7cfdb1ae4426.gif)
-
-## Filtering results
-Go quickly to what you are looking for.
-
-![Filter](https://i.gyazo.com/51859a5852367da33ef8c26162f69cbd.gif)
-
-## Quickly see hidden files
-Incredibly, this option is super difficult in default file managers
-
-![Hidden files](https://i.gyazo.com/13b861608a10da27033d9dc2cfd67bf2.gif)
 
 ## Configuration
 It allows to configure the sidebar with the file ~/.quercus/config.json
