@@ -1,5 +1,5 @@
 ## Querus
- Help is really needed to speed up the developement of
+ Simple file manager using react and electron .Help is really needed to speed up the developement
 
 ## Things to do
 - [ ] Remove unused packages
