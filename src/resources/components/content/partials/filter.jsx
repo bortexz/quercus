@@ -4,7 +4,7 @@ import classNames from 'classnames'
 class FilterInput extends React.Component {
   render () {
     return (
-      <div id='filter-content-search' className={this.containerClassnames()}>
+      <div id='filter-content-search' className='disapear'>
         <input
           type='text'
           name='content-filter'
@@ -15,10 +15,6 @@ class FilterInput extends React.Component {
           onBlur={this.props.onFilterBlur} />
       </div>
     )
-  }
-
-  containerClassnames () {
-    return classNames('disappear')
   }
 }
 

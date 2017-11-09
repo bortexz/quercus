@@ -24,7 +24,7 @@
   border-bottom-left-radius: 2px;
   border-width: 5px;
   border-style: solid;
-  border-color: #FFF #FFF rgba(255,255,255,.35) rgba(255,255,255,.35);
+  border-color: #2e3a4d #2e3a4d rgba(255,255,255,.35) rgba(255,255,255,.35);
 }
 .file::after {
   display: block;
@@ -72,8 +72,8 @@
   padding: 2px;
 }
 .file-lg {
-  width: 48px;
-  height: 64px;
+  width: 43px;
+  height: 53px;
   border-radius: 3px;
 }
 .file-lg::before {
