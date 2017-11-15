@@ -1,6 +1,6 @@
 import React, {PropTypes} from 'react'
 import {getBreadcrumbFromPath, getPathFromBreadcrumb}
-  from '~/system/navigation'
+  from '../../../system/navigation'
 
 class NavbarCenter extends React.Component {
 

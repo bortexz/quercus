@@ -36,3 +36,50 @@ render(
 )
 
 store.dispatch(loadConfig())
+
+
+const defautButtons = ()=>{
+  
+  const remote = require('electron').remote;
+  
+  document.getElementById("min-btn").addEventListener("click", e => {
+    const window = remote.getCurrentWindow();
+    window.minimize();
+  });
+
+  document.getElementById("close-btn").addEventListener("click", e => {
+    const window = remote.getCurrentWindow();
+    window.close();
+  });
+}
+
+/**
+ * Disable refresh
+ */
+const disableRefresh = () => {
+  document.onkeydown = () => {
+    switch (event.keyCode) {
+      case 116 :
+        event.returnValue = false;
+        event.keyCode = 0;
+        return false;
+      case 82 :
+        if (event.ctrlKey) {
+          event.returnValue = false;
+          event.keyCode = 0;
+          return false;
+        } break;
+      default: console.log('otherKey');
+    }
+  };
+};
+
+
+(() => {
+  document.onreadystatechange = () => {
+    if (document.readyState === 'complete') {
+      defautButtons();
+      disableRefresh();
+    }
+  };
+})();

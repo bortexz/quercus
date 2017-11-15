@@ -2,7 +2,7 @@ import React from 'react'
 import { ContextMenu, MenuItem, connect } from 'react-contextmenu'
 // import * as path from 'path'
 
-import { pasteFiles } from '~/system/clipboard'
+import { pasteFiles } from '../../system/clipboard'
 
 class ContentContextMenu extends React.Component {
   render () {

@@ -3,7 +3,7 @@ import { call, put } from 'redux-saga/effects'
 import { getConfig } from '../system'
 
 import { loadItemsOk } from '../actions/sidebar'
-import { LOAD_CONFIG, loadConfigErr } from '../actions/config'
+import { LOAD_CONFIG, loadConfigError } from '../actions/config'
 import { getFiles } from '../actions/content'
 
 function * getConfigGen (action) {
@@ -12,7 +12,7 @@ function * getConfigGen (action) {
     yield put(loadItemsOk(json.Sidebar))
     yield put(getFiles(json.Startpath))
   } catch (e) {
-    yield put(loadConfigErr(e.message))
+    yield put(loadConfigError(e.message))
   }
 }
 

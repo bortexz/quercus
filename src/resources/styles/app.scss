@@ -5,13 +5,44 @@ html, body {height: 100%;}
 @import './vendor/font-awesome-4.6.3/scss/font-awesome';
 
 html {
-  overflow-y: auto;
+  overflow-y: hidden;
+  background: #2e3a4d;
+  color: #fff;
 }
+
 
 #react-root {
   width: 100%;
   height: 100%;
 }
+
+#navbar,#content-list, .content-list-item,#content .react-context-menu-wrapper{
+  background: #2e3a4d !important;
+  color: #ccc;
+  &:hover{
+    color: #fff;
+  }
+}
+
+.title{
+  -webkit-app-region: drag;  
+  background: #2e3a4d;
+  margin: 0px !important;
+  color: #fff;
+  padding: 20px 20px 20px 30px;
+  font-weight: 300;
+  font-size: 16px;  
+}
+
+.title .fa-times,.title .fa-minus,.title .fa-window-restore{
+  color: #fff;
+  cursor: pointer;
+  padding-left: 20px;
+  -webkit-app-region: no-drag;
+  font-weight: 300;
+  font-size: 15px;
+}
+
 
 #app {
   height: 100%;
@@ -19,10 +50,12 @@ html {
   flex-direction: column;
   flex-wrap: nowrap;
   justify-content: flex-start;
-
+  &:focus{
+    outline: none;
+  }
   & #main-container {
     display: flex;
-
+    outline: none;
     flex-basis: 100%;
     justify-content: flex-start;
 
@@ -51,6 +84,9 @@ html {
 
     & .nav-item {
       padding: 0px 2px;
+      &:hover{
+        color: #fff;
+      }
     }
   }
 
@@ -61,11 +97,15 @@ html {
 
   & .nav-item {
     padding: 2px 2px;
+    &:hover{
+      color: #fff;
+    }
   }
 
 
   .is-disabled {
     opacity: 0.4;
+    color: #fff;
   }
 }
 
@@ -84,8 +124,8 @@ html {
   flex-basis: 100%;
   overflow-y: auto;
   align-items: flex-start;
-  background-color: rgb(98%,98%,98%);
-
+  background-color: #2e3a4d;
+  height: 100vh;
   position: relative;
 
   .react-context-menu-wrapper {
@@ -104,21 +144,35 @@ html {
 
     display:flex;
     align-items: center;
-    background: white;
 
-    z-index: 1;
+    z-index: 2;
     width: 250px;
     height: 50px;
 
     padding: 10px;
-
-    border-bottom: 1px solid rgba(0,0,0,0.1);
-    border-left: 1px solid rgba(0,0,0,0.1);
+    background: #2e3a4d;
+    border: none;
 
     /* Efect */
     &.disappear {
-      top: 0px;
+      // position: absolute;
+      top: 60px;
+      z-index: 999;
       transition: top .1s linear;
+      // -webkit-app-region: drag;  
+      // background: #2e3a4d;
+      border: none;
+      // color: #ccc;
+      // input{
+      //   background: #2e3a4d;
+      //   color: #fff;
+      // }
+      // margin: 0px !important;
+      // color: #fff;
+      // padding: 20px 20px 20px 30px;
+      // font-weight: 300;
+      // font-size: 16px;
+
     }
 
     /* Content search input */
@@ -131,6 +185,8 @@ html {
       appearance: none;
       box-shadow: none;
       border-radius: none;
+      background: #2e3a4d;
+      color: #fff;
     }
     input[type="text"]:focus {
       outline: none;
@@ -221,4 +277,33 @@ html {
 
 .hidden {
   opacity: 0.5;
+}
+
+.menu-list a:hover{
+  color: #f5f7fa;
+  background: #2e3a4d;
+}
+
+
+// scrollbar styling
+::-webkit-scrollbar {
+	width: 4px;
+}
+
+/* Track */
+::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3); 
+	-webkit-border-radius: 10px;
+	border-radius: 10px;
+}
+
+/* Handle */
+::-webkit-scrollbar-thumb {
+	-webkit-border-radius: 5px;
+	border-radius: 5px;
+	background: #ccc; 
+	-webkit-box-shadow: inset 0 0 2px rgba(0,0,0,0.5); 
+}
+::-webkit-scrollbar-thumb:window-inactive {
+background: #b3b3b3;
 }

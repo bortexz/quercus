@@ -1,6 +1,6 @@
 import React from 'react'
 import classNames from 'classnames'
-import {canGoUp, getUpDir} from '~/system/navigation'
+import {canGoUp, getUpDir} from '../../../system/navigation'
 
 class NavbarLeft extends React.Component {
 
