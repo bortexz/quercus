@@ -1,10 +1,10 @@
 ## quercus
  Simple file manager using react and electron. Help is really needed to speed up the developement
 
-![Main screen](image_0.PNG)
+![Main screen](image_0.png)
 
 
-![Main screen](image_1.PNG)
+![Main screen](image_1.png)
 
 ## Run
 To run it,
