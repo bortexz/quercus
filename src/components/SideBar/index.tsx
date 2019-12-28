@@ -1,17 +1,19 @@
 import React from 'react';
 
 import { defaultSideBarOptions } from '../../constants/sideBar';
-import Icon from '../Icon';
-import { SideBar as StyledSideBar, MenuItem } from './styles';
+import MenuItem from './MenuItem';
+import { SideBar as StyledSideBar } from './styles';
 
 const SideBar: React.FC = () => {
   return (
     <StyledSideBar>
       {defaultSideBarOptions.map(item => (
-        <MenuItem key={item.name}>
-          <Icon type={item.name} />
-          <span>{item.text}</span>
-        </MenuItem>
+        <MenuItem
+          key={item.name}
+          name={item.name}
+          path={item.path}
+          text={item.text}
+        />
       ))}
     </StyledSideBar>
   );
