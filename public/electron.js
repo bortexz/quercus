@@ -11,7 +11,9 @@ const {
 
 let mainWindow;
 function createWindow() {
-  mainWindow = new BrowserWindow({ width: 900, height: 680 });
+  mainWindow = new BrowserWindow({ width: 900, height: 680, show: false });
+  mainWindow.maximize();
+  mainWindow.show();
   mainWindow.loadURL(
     isDev
       ? 'http://localhost:3000'
