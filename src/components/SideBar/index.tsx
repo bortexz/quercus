@@ -8,12 +8,7 @@ const SideBar: React.FC = () => {
   return (
     <StyledSideBar>
       {defaultSideBarOptions.map(item => (
-        <MenuItem
-          key={item.name}
-          name={item.name}
-          path={item.path}
-          text={item.text}
-        />
+        <MenuItem key={item.name} name={item.name} text={item.text} />
       ))}
     </StyledSideBar>
   );
