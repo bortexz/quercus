@@ -20,7 +20,7 @@ const MenuItem: React.FC<Props> = ({
   currentPath,
   _setCurrentPath,
 }) => {
-  const path = useMemo(() => getPath(name), []);
+  const path = useMemo(() => getPath(name), [name]);
 
   return (
     <StyledMenuItem

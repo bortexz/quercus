@@ -3,7 +3,7 @@ import * as atypes from '../constants/actionTypes';
 import { SetCurrentPathAction } from '../types/actions';
 
 export default function(
-  state: string = require('os').homedir(),
+  state: string = window.require('os').homedir(),
   { type, payload }: SetCurrentPathAction
 ) {
   switch (type) {

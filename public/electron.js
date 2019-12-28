@@ -11,7 +11,12 @@ const {
 
 let mainWindow;
 function createWindow() {
-  mainWindow = new BrowserWindow({ width: 900, height: 680, show: false });
+  mainWindow = new BrowserWindow({
+    width: 900,
+    height: 680,
+    show: false,
+    webPreferences: { nodeIntegration: true },
+  });
   mainWindow.maximize();
   mainWindow.show();
   mainWindow.loadURL(

@@ -1,7 +1,7 @@
-const os = require('os');
-const path = require('path');
+const os = window.require('os');
+const path = window.require('path');
 
-export const getPath = name => {
+export const getPath = (name: string) => {
   switch (name) {
     case 'home':
       return os.homedir();
