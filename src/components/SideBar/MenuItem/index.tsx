@@ -35,7 +35,7 @@ const MenuItem: React.FC<Props> = ({
       active={path === currentPath}
     >
       <Icon type={name} />
-      <span>{text}</span>
+      <span data-testid="menuItemText">{text}</span>
     </StyledMenuItem>
   );
 };
