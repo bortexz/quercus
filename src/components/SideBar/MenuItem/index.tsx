@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import React, { useMemo } from 'react';
+import React, { useMemo, useCallback } from 'react';
 
 import { App } from '../../../types/state';
 import Icon from '../../Icon';
@@ -22,9 +22,15 @@ const MenuItem: React.FC<Props> = ({
 }) => {
   const path = useMemo(() => getPath(name), [name]);
 
+  const handleNavigate = useCallback(() => {
+    if (currentPath !== path) {
+      _setCurrentPath(path);
+    }
+  }, [path, currentPath, _setCurrentPath]);
+
   return (
     <StyledMenuItem
-      onClick={() => _setCurrentPath(path)}
+      onClick={handleNavigate}
       key={name}
       active={path === currentPath}
     >

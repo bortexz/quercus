@@ -6,7 +6,13 @@ import MenuItem from './index';
 
 afterEach(cleanup);
 
-it('renders', () => {
-  // const { asFragment } = render(<MenuItem name="desktop" text="desktop" />);
+it('Rendering the passed text', () => {
+  jest.mock('../../../utils', () => {
+    return {
+      getPath: (name: string) => name,
+    };
+  });
+
+  // const {} = render(<MenuItem name="desktop" text="desktop" />);
   // expect(asFragment()).toMatchSnapshot();
 });

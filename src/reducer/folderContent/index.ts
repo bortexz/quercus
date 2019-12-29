@@ -1,7 +1,6 @@
-import * as atypes from '../constants/actionTypes';
-
-import { FolderContent } from '../types/state';
-import { GetFolderContentAction } from '../types/actions';
+import * as atypes from '../../constants/actionTypes';
+import { FolderContent } from '../../types/state';
+import { GetFolderContentAction } from '../../types/actions';
 
 export default function(
   state: FolderContent = [],
