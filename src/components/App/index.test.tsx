@@ -6,7 +6,12 @@ import App from './index';
 
 afterEach(cleanup);
 
+jest.mock('../SideBar', () => {
+  const MockSideBar = () => <div />;
+  return MockSideBar;
+});
+
 it('Testing if it contains sidebar component is rendered', () => {
-  // const { asFragment } = render(<App />);
-  // expect(asFragment()).toMatchSnapshot();
+  const { asFragment } = render(<App />);
+  expect(asFragment()).toMatchSnapshot();
 });

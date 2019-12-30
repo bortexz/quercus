@@ -1,0 +1,11 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Testing if it contains sidebar component is rendered 1`] = `
+<DocumentFragment>
+  <div
+    class="sc-bdVaJa gPPEKz"
+  >
+    <div />
+  </div>
+</DocumentFragment>
+`;

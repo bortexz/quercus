@@ -9,7 +9,7 @@ const App: React.FC = () => {
     <>
       <GlobalStyle />
       <StyledApp>
-        <SideBar data-testid="sidebar" />
+        <SideBar />
       </StyledApp>
     </>
   );
