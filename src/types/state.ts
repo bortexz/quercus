@@ -7,4 +7,5 @@ export type FolderContent = Array<Child>;
 
 export interface App {
   currentPath: string;
+  folderContent: FolderContent;
 }

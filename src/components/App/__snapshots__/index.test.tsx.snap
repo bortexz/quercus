@@ -6,6 +6,7 @@ exports[`Testing if it contains sidebar component is rendered 1`] = `
     class="sc-bdVaJa gPPEKz"
   >
     <div />
+    <div />
   </div>
 </DocumentFragment>
 `;

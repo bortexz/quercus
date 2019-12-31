@@ -7,9 +7,11 @@ import { SideBar as StyledSideBar } from './styles';
 const SideBar: React.FC = () => {
   return (
     <StyledSideBar>
-      {defaultSideBarOptions.map(item => (
-        <MenuItem key={item.name} name={item.name} text={item.text} />
-      ))}
+      <div>
+        {defaultSideBarOptions.map(item => (
+          <MenuItem key={item.name} name={item.name} text={item.text} />
+        ))}
+      </div>
     </StyledSideBar>
   );
 };

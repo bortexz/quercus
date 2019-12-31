@@ -3,37 +3,39 @@
 exports[`Checking if there are all default options 1`] = `
 <DocumentFragment>
   <div
-    class="sc-bdVaJa jHuXac"
+    class="sc-bdVaJa cOisMv"
   >
-    <div
-      data-name="recent"
-    >
-      Recent
-    </div>
-    <div
-      data-name="home"
-    >
-      Home
-    </div>
-    <div
-      data-name="desktop"
-    >
-      Desktop
-    </div>
-    <div
-      data-name="download"
-    >
-      Downloads
-    </div>
-    <div
-      data-name="image"
-    >
-      Pictures
-    </div>
-    <div
-      data-name="trash"
-    >
-      Trash
+    <div>
+      <div
+        data-name="recent"
+      >
+        Recent
+      </div>
+      <div
+        data-name="home"
+      >
+        Home
+      </div>
+      <div
+        data-name="desktop"
+      >
+        Desktop
+      </div>
+      <div
+        data-name="download"
+      >
+        Downloads
+      </div>
+      <div
+        data-name="image"
+      >
+        Pictures
+      </div>
+      <div
+        data-name="trash"
+      >
+        Trash
+      </div>
     </div>
   </div>
 </DocumentFragment>
