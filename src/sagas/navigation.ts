@@ -4,7 +4,7 @@ import * as atypes from '../constants/actionTypes';
 import * as navigationApi from '../api/navigation';
 import { SetCurrentPathAction } from '../types/actions';
 
-function* navigate({ payload }: SetCurrentPathAction): any {
+export function* navigate({ payload }: SetCurrentPathAction): any {
   try {
     const folderContent = yield call(navigationApi.listFiles, payload.path);
 
@@ -22,7 +22,7 @@ function* navigate({ payload }: SetCurrentPathAction): any {
   }
 }
 
-function* watchNavigate(): any {
+export function* watchNavigate(): any {
   yield takeLatest(atypes.SET_CURRENT_PATH, navigate);
 }
 
