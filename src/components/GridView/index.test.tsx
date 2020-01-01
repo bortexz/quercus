@@ -11,6 +11,12 @@ afterEach(cleanup);
 
 const mockStore = configureStore([]);
 
+jest.mock('../../utils', () => {
+  return {
+    getPath: (name: string) => name,
+  };
+});
+
 jest.mock('./Item', () => {
   const Item = ({ name }: { name: string }) => (
     <div data-testid={name}>{name}</div>
