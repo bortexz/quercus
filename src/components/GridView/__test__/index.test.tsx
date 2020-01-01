@@ -4,20 +4,20 @@ import '@testing-library/jest-dom/extend-expect';
 import configureStore from 'redux-mock-store';
 import { Provider } from 'react-redux';
 
-import GridView from './index';
-const { listFilesResponse } = require('../../__mock__/api');
+import GridView from '../index';
+const { listFilesResponse } = require('../../../__mock__/api');
 
 afterEach(cleanup);
 
 const mockStore = configureStore([]);
 
-jest.mock('../../utils', () => {
+jest.mock('../../../utils', () => {
   return {
     getPath: (name: string) => name,
   };
 });
 
-jest.mock('./Item', () => {
+jest.mock('../Item', () => {
   const Item = ({ name }: { name: string }) => (
     <div data-testid={name}>{name}</div>
   );
