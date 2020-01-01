@@ -1,7 +1,7 @@
 import React from 'react';
 
-import { Item as StyledItem } from './styles';
-import Type from './Type';
+import File from './File';
+import Folder from './Folder';
 
 interface Props {
   name: string;
@@ -9,12 +9,11 @@ interface Props {
 }
 
 const Item: React.FC<Props> = ({ name, type }) => {
-  return (
-    <StyledItem>
-      <Type name={name} type={type} />
-      <h4>{name}</h4>
-    </StyledItem>
-  );
+  if (type === 'folder') {
+    return <Folder name={name} />;
+  }
+
+  return <File name={name} />;
 };
 
 export default Item;
