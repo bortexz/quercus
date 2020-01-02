@@ -4,7 +4,7 @@ import React, { useCallback } from 'react';
 import { App } from '../../types/state';
 import { setCurrentPath } from '../../actions/sideBar';
 import Icon from '../Icon';
-import { Item as StyledItem } from './styles';
+import { Folder as StyledFolder } from './styles';
 
 const path = window.require('path');
 
@@ -20,10 +20,10 @@ const Folder: React.FC<Props> = ({ currentPath, name, _setCurrentPath }) => {
   }, [currentPath, name, _setCurrentPath]);
 
   return (
-    <StyledItem title={name} onClick={navigateInto}>
+    <StyledFolder title={name} onClick={navigateInto}>
       <Icon type="folder" />
       <h4>{name}</h4>
-    </StyledItem>
+    </StyledFolder>
   );
 };
 

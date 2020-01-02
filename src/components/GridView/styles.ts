@@ -30,4 +30,18 @@ export const Item = styled.div`
     word-break: break-all;
     height: 1.6rem;
   }
+
+  :hover {
+    > svg > path {
+      fill: #fff;
+    }
+  }
+`;
+
+export const Folder = styled(Item)`
+  :hover {
+    > svg > path {
+      fill: #616161;
+    }
+  }
 `;
